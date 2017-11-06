@@ -65,6 +65,7 @@
                                 <br>
                                 <table class="table table-striped table-hover">
                                     <tr>
+                                        <th>Id</th>
                                         <th>Name</th>
                                         <th>Quantity</th>
                                         
@@ -72,8 +73,10 @@
                                     </tr>
                                     <c:forEach items="${dsTags}" var="Tag">
                                         <tr>
+                                            <td>${Tag.getId()}</td>
                                             <td>${Tag.getName()}</td>
-                                            <td>${Tag.getName()}</td>
+                                            <td>${Tag.getNumber()}</td>
+                                            <td><a class="btn btn-default" href="edit.html">Edit</a> <a class="btn btn-danger" href="#">Delete</a></td>
                                         </tr>
                                     </c:forEach>
                                     

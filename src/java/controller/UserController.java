@@ -11,13 +11,16 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import modelDAO.usersDAO;
+import model.Users;
+
 @Controller
 @RequestMapping(value="/users")
 public class UserController {
     
     @RequestMapping(method = RequestMethod.GET)
     public String index(ModelMap modelmap){
-        
+        modelmap.put("lsUser", usersDAO.ListAll() );
         return "backend/users";
     }
     

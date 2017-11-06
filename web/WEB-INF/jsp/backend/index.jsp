@@ -8,6 +8,12 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="p" uri="/WEB-INF/tlds/myTags" %>
+
+<%
+    Long numberUser = usersDAO.CountUser();
+    pageContext.setAttribute("numberUser", numberUser);
+%>
+
 <p:backend title="Trang chủ quản lý" >
     <jsp:attribute name="contentAD">
 
@@ -57,7 +63,7 @@
                             <div class="panel-body">
                                 <div class="col-md-3">
                                     <div class="well dash-box">
-                                        <h2><span class="glyphicon glyphicon-user" aria-hidden="true"></span> 203</h2>
+                                        <h2><span class="glyphicon glyphicon-user" aria-hidden="true"></span> 20</h2>
                                         <h4>Users</h4>
                                     </div>
                                 </div>

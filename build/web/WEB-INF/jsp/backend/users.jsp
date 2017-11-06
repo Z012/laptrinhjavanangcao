@@ -8,6 +8,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="p" uri="/WEB-INF/tlds/myTags" %>
+
 <p:backend title="Trang quan ly nguoi dung" >
     <jsp:attribute name="contentAD">
 
@@ -46,9 +47,9 @@
         <section id="main">
             <div class="container">
                 <div class="row">
-                    
+
                     <%@include file="General.jsp" %>
-                    
+
                     <div class="col-md-9">
                         <!-- Website Overview -->
                         <div class="panel panel-default">
@@ -69,30 +70,16 @@
                                         <th>Joined</th>
                                         <th></th>
                                     </tr>
-                                    <tr>
-                                        <td>Jill Smith</td>
-                                        <td>jillsmith@gmail.com</td>
-                                        <td>Dec 12, 2016</td>
-                                        <td><a class="btn btn-default" href="edit.html">Edit</a> <a class="btn btn-danger" href="#">Delete</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Eve Jackson</td>
-                                        <td>ejackson@yahoo.com</td>
-                                        <td>Dec 13, 2016</td>
-                                        <td><a class="btn btn-default" href="edit.html">Edit</a> <a class="btn btn-danger" href="#">Delete</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Stephanie Landon</td>
-                                        <td>landon@yahoo.com</td>
-                                        <td>Dec 14, 2016</td>
-                                        <td><a class="btn btn-default" href="edit.html">Edit</a> <a class="btn btn-danger" href="#">Delete</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Mike Johnson</td>
-                                        <td>mjohnson@gmail.com</td>
-                                        <td>Dec 15, 2016</td>
-                                        <td><a class="btn btn-default" href="edit.html">Edit</a> <a class="btn btn-danger" href="#">Delete</a></td>
-                                    </tr>
+                                    <c:forEach var="user" items="${lsUser}">
+                                        <tr>
+                                            <td>${user.getUsername()}</td>
+                                            <td>${user.getEmail()}</td>
+                                            <td>${user.getDateCreated()}</td>
+                                            <td><a class="btn btn-default" href="edit.html">Edit</a> <a class="btn btn-danger" href="#">Delete</a></td>
+                                        </tr>
+                                    </c:forEach>
+
+                                    
                                 </table>
                             </div>
                         </div>
