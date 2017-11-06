@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 6, 2017 3:29:36 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.Messages" table="Messages" catalog="blogdatabase" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="Id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="users" class="model.Users" fetch="select">
+            <column name="UsersId" />
+        </many-to-one>
+        <property name="title" type="string">
+            <column name="Title" />
+        </property>
+        <property name="content" type="string">
+            <column name="Content" length="65535" />
+        </property>
+    </class>
+</hibernate-mapping>

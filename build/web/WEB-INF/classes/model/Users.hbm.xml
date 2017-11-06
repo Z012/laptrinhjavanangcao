@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 6, 2017 3:29:36 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.Users" table="Users" catalog="blogdatabase" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="Id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="role" class="model.Role" fetch="select">
+            <column name="RoleId" />
+        </many-to-one>
+        <property name="username" type="string">
+            <column name="Username" />
+        </property>
+        <property name="password" type="string">
+            <column name="Password" />
+        </property>
+        <property name="fullName" type="string">
+            <column name="FullName" />
+        </property>
+        <property name="avatarUrl" type="string">
+            <column name="AvatarUrl" length="500" />
+        </property>
+        <property name="status" type="java.lang.Integer">
+            <column name="Status" />
+        </property>
+        <property name="email" type="string">
+            <column name="Email" />
+        </property>
+        <property name="dateCreated" type="timestamp">
+            <column name="DateCreated" length="19" />
+        </property>
+        <set name="commentses" table="Comments" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="UsersId" />
+            </key>
+            <one-to-many class="model.Comments" />
+        </set>
+        <set name="messageses" table="Messages" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="UsersId" />
+            </key>
+            <one-to-many class="model.Messages" />
+        </set>
+        <set name="posts" table="Post" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="UsersId" />
+            </key>
+            <one-to-many class="model.Post" />
+        </set>
+    </class>
+</hibernate-mapping>
