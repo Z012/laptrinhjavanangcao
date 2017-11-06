@@ -20,7 +20,11 @@ import model.Post;
 public class HomeController {
     
     @RequestMapping(method=RequestMethod.GET)
-    public String home(Model model){
+    public String home(ModelMap model){
+        int soluong = 8;
+        List<Post> dsBaiViet = postsDAO.ListAll(soluong);
+        model.put("dsBaiViet", dsBaiViet);
+        
         return "fontend/home";
     }
     

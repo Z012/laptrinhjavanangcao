@@ -1,5 +1,6 @@
 package modelDAO;
 
+import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -13,14 +14,21 @@ import model.HibernateUtil;
  */
 public class postsDAO {
     
-    public static List<Post> ListAll() {
-        List<Post> dsPost = null;
+    public static List<Post> ListAll(int soluong) {
+        List<Post> dsPost = new ArrayList<>();
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
-        String hql = "from Posts";
-        Query query = session.createQuery(hql);
+        String hlq = "from Post order by DateModified desc";
+        Query query = session.createQuery(hlq).setMaxResults(soluong);
         dsPost = query.list();
         return dsPost;
+    }
+    
+    public static Post SearchTitle(String str){
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+        
+        return null;
     }
     
     public static Post ViewDetail(int id) {
