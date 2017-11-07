@@ -18,16 +18,14 @@ public class tagsDAO {
     public static List<Tags> ListAll() {
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
-        String hlq = "from Tags";
-        Query query = session.createQuery(hlq);
+        Query query = session.createQuery("from Tags");
         return query.list();
     }
     
     public static Long CountTags(){
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
-        String hlq = "select count(*) from Tags";
-        Query query = session.createQuery(hlq);
+        Query query = session.createQuery("select count(*) from Tags");
         Long numberTag = (Long)query.uniqueResult();
         return numberTag;
     }

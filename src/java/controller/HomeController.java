@@ -21,7 +21,7 @@ public class HomeController {
     
     @RequestMapping(method=RequestMethod.GET)
     public String home(ModelMap model){
-        int soluong = 8;
+        int soluong = 7;
         List<Post> dsBaiViet = postsDAO.ListNumber(soluong);
         model.put("dsBaiViet", dsBaiViet);
         

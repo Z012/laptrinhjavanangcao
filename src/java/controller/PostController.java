@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import modelDAO.postsDAO;
 
@@ -22,7 +23,12 @@ public class PostController {
         return "backend/posts";
     }
     
-    
+    @RequestMapping(value="/{id}/single", method=RequestMethod.GET)
+    public String viewDetail(@PathVariable("id") int id, ModelMap modelmap){
+        modelmap.addAttribute("baiviet", postsDAO.ViewDetail(id));
+        
+        return "fontend/single";
+    }
     
     
 }
