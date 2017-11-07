@@ -24,7 +24,7 @@ public class AdminController {
     @RequestMapping(value="/index", method=RequestMethod.GET)
     public String home(ModelMap modelmap){
         modelmap.addAttribute("lsUser", usersDAO.ListNumber(5));
-//        modelmap.addAttribute("numberUser", usersDAO.CountUser()).addAttribute("numberTag", tagsDAO.CountTags());
+        modelmap.addAttribute("numberUser", 4).addAttribute("numberTag", 5);
         return "backend/index";
     }
 }

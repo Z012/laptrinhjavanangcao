@@ -21,7 +21,7 @@ public class TagsController {
     
     @RequestMapping(method = RequestMethod.GET)
     public String index(ModelMap model){
-        List<Tags> dsTags = tagsDAO.getAll();
+        List<Tags> dsTags = tagsDAO.ListAll();
         model.put("dsTags", dsTags);
         return "backend/tags";
     }

@@ -10,18 +10,17 @@ import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
-import model.*;
+import model.HibernateUtil;
+import model.Tags;
 
 public class tagsDAO {
     
-    public static List<Tags> getAll() {
-        List<Tags> dsTags = new ArrayList<Tags>();
+    public static List<Tags> ListAll() {
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
         String hlq = "from Tags";
         Query query = session.createQuery(hlq);
-        dsTags = query.list();
-        return dsTags;
+        return query.list();
     }
     
     public static Long CountTags(){
