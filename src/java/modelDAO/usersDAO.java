@@ -28,6 +28,16 @@ public class usersDAO {
         return lsUser;
     }
     
+    public static List<Users> ListNumber(int quatity){
+        List<Users> lsUser = null;
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+        String hlq = "from Users order by DateCreated desc";
+        Query query = session.createQuery(hlq).setMaxResults(quatity);
+        lsUser = query.list();
+        return lsUser;
+    }
+    
     public static Long CountUser() {
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();

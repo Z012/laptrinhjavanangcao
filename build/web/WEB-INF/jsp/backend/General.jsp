@@ -4,10 +4,11 @@
     Author     : mk
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<%@page import="modelDAO.usersDAO"%>
+
 
 <div class="col-md-3">
     <div class="list-group">
@@ -21,7 +22,7 @@
             <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Users <span class="badge">${numberUser}</span>
         </a>
         <a href="${pageContext.request.contextPath}/tags.html" class="list-group-item">
-            <span class="glyphicon glyphicon-tag" aria-hidden="true"></span> Tags <span class="badge">15</span>
+            <span class="glyphicon glyphicon-tag" aria-hidden="true"></span> Tags <span class="badge">${numberTag}</span>
         </a>
         <a href="${pageContext.request.contextPath}/comments.html" class="list-group-item">
             <span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Comments <span class="badge">203</span>

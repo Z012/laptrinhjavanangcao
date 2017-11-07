@@ -45,10 +45,10 @@
                     <div class="navigation">
                         <span class="menu"></span> 
                         <ul class="navig">
-                            <li><a href="home.html"  class="active">Trang chu</a></li>
-                            <li><a href="${pageContext.request.contextPath}/home/about.html">Gioi thieu</a></li>
-                            <li><a href="posts.html">Bai viet</a></li>
-                            <li><a href="${pageContext.request.contextPath}/home/contact.html">Lien he</a></li>
+                            <li><a href="${pageContext.request.contextPath}/home.html"  class="active">Trang chủ</a></li>
+                            <li><a href="${pageContext.request.contextPath}/home/about.html">Giới thiệu</a></li>
+                            <li><a href="${pageContext.request.contextPath}/posts.html">Chủ đề</a></li>
+                            <li><a href="${pageContext.request.contextPath}/home/contact.html">Liên hệ</a></li>
                         </ul>
                     </div>
                     <div class="header-right">
@@ -82,7 +82,7 @@
         <div class="footer">
             <div class="container">
                 <div class="footer-text">
-                    <p>© 2015 Coffee Break. All Rights Reserved | Design by  MrK J3r7y </p>
+                    <p>© 2015 Thư giãn. Thiết kế bởi MrK J3r7y </p>
                 </div>
             </div>
         </div>

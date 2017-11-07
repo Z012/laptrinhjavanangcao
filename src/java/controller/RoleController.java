@@ -4,8 +4,7 @@ package controller;
  *
  * @author mk
  */
-
-import javax.servlet.http.HttpServletRequest;
+import modelDAO.rolesDAO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +16,7 @@ public class RoleController {
     
     @RequestMapping(method = RequestMethod.GET)
     public String index(ModelMap modelmap){
-        
+        modelmap.addAttribute("lsRole", rolesDAO.ListAll());
         return "backend/roles";
     }
 }

@@ -9,22 +9,22 @@ package controller;
  *
  * @author mk
  */
-
-import java.util.List;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
+import modelDAO.tagsDAO;
+import modelDAO.usersDAO;
 
 @Controller
 @RequestMapping(value="/admin")
 public class AdminController {
     
     @RequestMapping(value="/index", method=RequestMethod.GET)
-    public String home(Model model){
+    public String home(ModelMap modelmap){
+        modelmap.addAttribute("lsUser", usersDAO.ListNumber(5));
+//        modelmap.addAttribute("numberUser", usersDAO.CountUser()).addAttribute("numberTag", tagsDAO.CountTags());
         return "backend/index";
     }
 }

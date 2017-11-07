@@ -76,7 +76,10 @@
                                             <td>${Tag.getId()}</td>
                                             <td>${Tag.getName()}</td>
                                             <td>${Tag.getNumber()}</td>
-                                            <td><a class="btn btn-default" href="edit.html">Edit</a> <a class="btn btn-danger" href="#">Delete</a></td>
+                                            <td>
+                                                <a class="btn btn-default disabled" href="edit.html"><span class="glyphicon glyphicon-pencil"></span></a> 
+                                                <a class="btn btn-danger disabled" href="#"><span class="glyphicon glyphicon-trash"></span></a>
+                                            </td>
                                         </tr>
                                     </c:forEach>
                                     

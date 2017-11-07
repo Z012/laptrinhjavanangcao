@@ -69,24 +69,18 @@
                                         <th>Description</th>
                                         <th></th>
                                     </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Admin</td>
-                                        <td>Nguoi quan tri</td>
-                                        <td><a class="btn btn-default disabled" href="edit.html">Edit</a> <a class="btn btn-danger disabled" href="#">Delete</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>0</td>
-                                        <td>User</td>
-                                        <td>Nguoi dung binh thuong</td>
-                                        <td><a class="btn btn-default" href="edit.html">Edit</a> <a class="btn btn-danger" href="#">Delete</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>-1</td>
-                                        <td>User Message</td>
-                                        <td>Nguoi gui tin nhat</td>
-                                        <td><a class="btn btn-default" href="edit.html">Edit</a> <a class="btn btn-danger" href="#">Delete</a></td>
-                                    </tr>
+                                    <c:forEach items="${lsRole}" var="role">
+                                        <tr>
+                                            <td>${role.getId()}</td>
+                                            <td>${role.getName()}</td>
+                                            <td>${role.getDescription()}</td>
+                                            <td>
+                                                <a class="btn btn-default disabled" href="edit.html"><span class="glyphicon glyphicon-pencil"></span></a> 
+                                                <a class="btn btn-danger disabled" href="#"><span class="glyphicon glyphicon-trash"></span></a>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
+
                                     
                                 </table>
                             </div>

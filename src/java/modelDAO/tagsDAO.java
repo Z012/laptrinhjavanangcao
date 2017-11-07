@@ -23,4 +23,13 @@ public class tagsDAO {
         dsTags = query.list();
         return dsTags;
     }
+    
+    public static Long CountTags(){
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+        String hlq = "select count(*) from Tags";
+        Query query = session.createQuery(hlq);
+        Long numberTag = (Long)query.uniqueResult();
+        return numberTag;
+    }
 }

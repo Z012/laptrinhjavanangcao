@@ -15,23 +15,19 @@ import model.HibernateUtil;
 public class postsDAO {
     
     public static List<Post> ListAll() {
-        List<Post> dsPost = new ArrayList<>();
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
         String hlq = "from Post order by DateModified desc";
         Query query = session.createQuery(hlq);
-        dsPost = query.list();
-        return dsPost;
+        return query.list();
     }
     
     public static List<Post> ListNumber(int soluong) {
-        List<Post> dsPost = new ArrayList<>();
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
         String hlq = "from Post order by DateModified desc";
         Query query = session.createQuery(hlq).setMaxResults(soluong);
-        dsPost = query.list();
-        return dsPost;
+        return query.list();
     }
     
     public static Post SearchTitle(String str){

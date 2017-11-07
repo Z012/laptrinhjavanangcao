@@ -69,30 +69,26 @@
                                         <th>Created</th>
                                         <th></th>
                                     </tr>
-                                    <tr>
-                                        <td>Blog Post 1</td>
-                                        <td><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
-                                        <td>Dec 12, 2016</td>
-                                        <td><a class="btn btn-default" href="edit.html">Edit</a> <a class="btn btn-danger" href="#">Delete</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Blog Post 2</td>
-                                        <td><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
-                                        <td>Dec 13, 2016</td>
-                                        <td><a class="btn btn-default" href="edit.html">Edit</a> <a class="btn btn-danger" href="#">Delete</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Blog Post 3</td>
-                                        <td><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></td>
-                                        <td>Dec 13, 2016</td>
-                                        <td><a class="btn btn-default" href="edit.html">Edit</a> <a class="btn btn-danger" href="#">Delete</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Blog Post 4</td>
-                                        <td><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
-                                        <td>Dec 14, 2016</td>
-                                        <td><a class="btn btn-default" href="edit.html">Edit</a> <a class="btn btn-danger" href="#">Delete</a></td>
-                                    </tr>
+                                    <c:forEach var="post" items="${lsPost}">
+                                        <tr>
+                                            <td>${post.getTitle()}</td>
+                                            <td>
+                                                <c:if test="${post.getStatus() == 1}">
+                                                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                                                </c:if>
+                                                <c:if test="${post.getStatus() != 1}">
+                                                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                                </c:if>
+                                            </td>
+                                            <td>${post.getDateModified()}</td>
+                                            <td>
+                                                <a class="btn btn-default disabled" href="edit.html"><span class="glyphicon glyphicon-pencil"></span></a> 
+                                                <a class="btn btn-danger disabled" href="#"><span class="glyphicon glyphicon-trash"></span></a>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
+
+                                    
                                 </table>
                             </div>
                         </div>
