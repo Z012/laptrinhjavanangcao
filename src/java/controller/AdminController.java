@@ -26,10 +26,6 @@ public class AdminController {
     
     @RequestMapping(value="/index", method=RequestMethod.GET)
     public String home(ModelMap modelmap){
-//        modelmap.addAttribute("numberUser", usersDAO.CountUser());
-//        modelmap.addAttribute("numberTag", tagsDAO.CountTags());
-//        Long nUser = usersDAO.CountUser();
-//        Long nTag = tagsDAO.CountTags();
         modelmap.put("lsUser", usersDAO.ListAll());
         modelmap.put("numberUser", usersDAO.CountUser());
         modelmap.put("numberTag", tagsDAO.CountTags());
