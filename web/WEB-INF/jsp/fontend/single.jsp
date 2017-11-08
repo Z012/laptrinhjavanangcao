@@ -56,9 +56,6 @@
                             <input type="text" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {
                                                             this.value = 'Email';
                                                         }">
-                            <input type="text" value="Subject" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                                            this.value = 'Subject';
-                                                        }">
                             <textarea cols="77" rows="6" value=" " onfocus="this.value = '';" onblur="if (this.value == '') {
                                                             this.value = 'Message';
                                                         }">Message</textarea>

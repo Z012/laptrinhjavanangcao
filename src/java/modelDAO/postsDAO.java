@@ -75,7 +75,6 @@ public class postsDAO {
             return true;
         } catch (Exception e) {
             session.getTransaction().rollback();
-            System.out.println(e);
             return false;
         } finally {
             session.close();

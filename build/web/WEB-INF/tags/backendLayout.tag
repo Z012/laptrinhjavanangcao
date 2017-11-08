@@ -10,8 +10,6 @@
 <%@attribute name="title"%>
 <%@attribute name="contentAD" fragment="true" %>
 
-
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -40,17 +38,32 @@
                 </div>
                 <div id="navbar" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#">Welcome, Brad</a></li>
-                        <li><a href="${pageContext.request.contextPath}/users/login.html">Logout</a></li>
+                        <%
+                            if (session.getAttribute("UsernameSession") == null) {
+                        %>
+                        <li>
+                            <a href="${pageContext.request.contextPath}/users/signup.html">Login</a>
+                        </li>
+                        <% } %>
+                        <%
+                            if (session.getAttribute("UsernameSession") != null) {
+                        %>
+                            <li> 
+                                <a href="">Welcome, <%= session.getAttribute("UsernameSession")%></a>
+                            </li>
+                            <li>
+                                <a href="${pageContext.request.contextPath}/users/signup.html">Logout</a>
+                            </li>
+                        <% } %>
                     </ul>
                 </div><!--/.nav-collapse -->
             </div>
         </nav>
 
-       
+
         <jsp:invoke fragment="contentAD" />
 
-        
+
         <footer id="footer">
             <p>Copyright AdminStrap, &copy; 2017</p>
         </footer>

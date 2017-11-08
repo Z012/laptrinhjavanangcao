@@ -47,7 +47,7 @@
                         <ul class="navig">
                             <li><a href="${pageContext.request.contextPath}/home.html"  class="active">Trang chủ</a></li>
                             <li><a href="${pageContext.request.contextPath}/home/about.html">Giới thiệu</a></li>
-                            <li><a href="${pageContext.request.contextPath}/posts.html">Chủ đề</a></li>
+                            <li><a href="${pageContext.request.contextPath}/home/tags.html">Chủ đề</a></li>
                             <li><a href="${pageContext.request.contextPath}/home/contact.html">Liên hệ</a></li>
                         </ul>
                     </div>
@@ -82,9 +82,11 @@
         <div class="footer">
             <div class="container">
                 <div class="footer-text">
-                    <p>© 2015 Thư giãn. Thiết kế bởi MrK J3r7y </p>
+                    <p>© 2015 Demo. Thiết kế bởi MrK J3r7y </p>
                 </div>
             </div>
         </div>
+        
+        <script type="text/javascript" src="${pageContext.request.contextPath}/templates/js/style.js"></script>
     </body>
 </html>
