@@ -41,7 +41,7 @@
                 <div id="navbar" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#">Welcome, Brad</a></li>
-                        <li><a href="${pageContext.request.contextPath}/user/login.html">Logout</a></li>
+                        <li><a href="${pageContext.request.contextPath}/users/login.html">Logout</a></li>
                     </ul>
                 </div><!--/.nav-collapse -->
             </div>

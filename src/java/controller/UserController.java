@@ -31,7 +31,7 @@ public class UserController {
     
     @RequestMapping(value="/logout", method = RequestMethod.GET)
     public String logout(ModelMap modelMap, HttpServletRequest request) {
-        return "redirect:/login.html";
+        return "redirect:/login";
     }
     
     
