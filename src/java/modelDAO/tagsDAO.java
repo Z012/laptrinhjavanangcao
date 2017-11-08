@@ -29,6 +29,13 @@ public class tagsDAO {
         }
         return lsTag;
     }
+    
+    public static Tags ViewDetail(int id) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Tags tag = (Tags) session.get(Tags.class, id);
+        session.close();
+        return tag;
+    }
 
     public static int CountTags() {
         SessionFactory sessionFac = HibernateUtil.getSessionFactory();

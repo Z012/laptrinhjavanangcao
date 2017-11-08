@@ -53,13 +53,8 @@ public class postsDAO {
     public static Post ViewDetail(int id) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Post post = null;
-        try {
-            post = (Post) session.get(Post.class, id);
-        } catch (Exception e) {
-
-        } finally {
-            session.close();
-        }
+        post = (Post) session.get(Post.class, id);
+        session.close();
         return post;
     }
 
@@ -80,14 +75,14 @@ public class postsDAO {
             session.close();
         }
     }
-    
+
     public static int CountPost() {
         Session session = HibernateUtil.getSessionFactory().openSession();
         int numberPost = 0;
         try {
             numberPost = session.createQuery("from Post").list().size();
-        } catch(Exception e) {
-            
+        } catch (Exception e) {
+
         } finally {
             session.close();
         }
