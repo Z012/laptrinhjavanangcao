@@ -5,6 +5,7 @@
         <group>
             <file>file:/home/mk/NetBeansProjects/MyBlog/web/WEB-INF/jsp/backend/index.jsp</file>
             <file>file:/home/mk/NetBeansProjects/MyBlog/src/java/controller/AdminController.java</file>
+            <file>file:/home/mk/NetBeansProjects/MyBlog/src/java/modelDAO/usersDAO.java</file>
         </group>
     </open-files>
 </project-private>

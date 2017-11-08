@@ -91,19 +91,19 @@
                             <div class="panel-body">
                                 <div class="col-md-3">
                                     <div class="well dash-box">
-                                        <h2><span class="glyphicon glyphicon-user" aria-hidden="true"></span> 20</h2>
+                                        <h2><span class="glyphicon glyphicon-user" aria-hidden="true"></span> ${numberUser}</h2>
                                         <h4>Users</h4>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="well dash-box">
-                                        <h2><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> 12</h2>
+                                        <h2><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> ${numberMessage}</h2>
                                         <h4>Messages</h4>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="well dash-box">
-                                        <h2><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> 33</h2>
+                                        <h2><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> ${numberPost}</h2>
                                         <h4>Posts</h4>
                                     </div>
                                 </div>

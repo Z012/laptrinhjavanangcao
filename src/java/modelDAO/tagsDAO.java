@@ -4,7 +4,6 @@ package modelDAO;
  *
  * @author mk
  */
-
 import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.Query;
@@ -12,21 +11,36 @@ import org.hibernate.Session;
 
 import model.HibernateUtil;
 import model.Tags;
+import org.hibernate.SessionFactory;
 
 public class tagsDAO {
-    
+
     public static List<Tags> ListAll() {
-        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-        session.beginTransaction();
-        Query query = session.createQuery("from Tags");
-        return query.list();
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.openSession();
+        List<Tags> lsTag = null;
+        try {
+            Query query = session.createQuery("from Tags");
+            lsTag = query.list();
+        } catch (Exception e) {
+
+        } finally {
+            session.close();
+        }
+        return lsTag;
     }
-    
-    public static Long CountTags(){
-        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-        session.beginTransaction();
-        Query query = session.createQuery("select count(*) from Tags");
-        Long numberTag = (Long)query.uniqueResult();
+
+    public static int CountTags() {
+        SessionFactory sessionFac = HibernateUtil.getSessionFactory();
+        Session session = sessionFac.openSession();
+        int numberTag = 0;
+        try {
+            Query query = session.createQuery("from Tags");
+            numberTag = query.list().size();
+        } catch (Exception e) {
+        } finally {
+            session.close();
+        }
         return numberTag;
     }
 }

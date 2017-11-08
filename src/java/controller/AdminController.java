@@ -9,6 +9,10 @@ package controller;
  *
  * @author mk
  */
+import modelDAO.commentsDAO;
+import modelDAO.messagesDAO;
+import modelDAO.postsDAO;
+import modelDAO.rolesDAO;
 import org.springframework.stereotype.*;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
@@ -26,9 +30,13 @@ public class AdminController {
 //        modelmap.addAttribute("numberTag", tagsDAO.CountTags());
 //        Long nUser = usersDAO.CountUser();
 //        Long nTag = tagsDAO.CountTags();
-        modelmap.put("lsUser", usersDAO.ListNumber(5));
-//        modelmap.put("numberUser", usersDAO.CountUser());
-//        modelmap.put("numberTag", tagsDAO.CountTags());
+        modelmap.put("lsUser", usersDAO.ListAll());
+        modelmap.put("numberUser", usersDAO.CountUser());
+        modelmap.put("numberTag", tagsDAO.CountTags());
+        modelmap.put("numberRole", rolesDAO.CountRole());
+        modelmap.put("numberPost", postsDAO.CountPost());
+        modelmap.put("numberComment", commentsDAO.CountComment());
+        modelmap.put("numberMessage", messagesDAO.CountMessage());
         return "backend/index";
     }
 }
