@@ -13,7 +13,9 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import model.Users;
 import model.HibernateUtil;
 import org.hibernate.Query;
@@ -47,6 +49,10 @@ public class usersDAO {
                 Users user = new Users();
                 user.setEmail(email);
                 user.setUsername(name);
+                
+                Set<Users> scmm = new HashSet<Users>();
+                scmm.add(user);
+                
                 session.save(user);
                 session.getTransaction().commit();
                 return true;

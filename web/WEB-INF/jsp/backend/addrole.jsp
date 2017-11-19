@@ -44,7 +44,7 @@
                     <%@include file="General.jsp" %>
 
                     <div class="col-md-9">
-                        <form method="POST" action="#">
+                        <form method="POST" action="${pageContext.request.contextPath}/roles/store.html">
                             <div class="header">
                                 <h2>Add Role</h2>
                             </div>

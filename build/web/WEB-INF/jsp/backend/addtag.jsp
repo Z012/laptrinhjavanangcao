@@ -44,14 +44,14 @@
                     <%@include file="General.jsp" %>
 
                     <div class="col-md-9">
-                        <form method="POST" action="#">
+                        <form method="POST" action="${pageContext.request.contextPath}/tags/store.html">
                             <div class="header">
                                 <h2>Add Tag</h2>
                             </div>
                             <div class="body">
                                 <div class="form-group">
                                     <label>Title</label>
-                                    <input type="text" class="form-control" placeholder="Title" name="title">
+                                    <input type="text" class="form-control" placeholder="Title" name="title" required>
                                 </div>
                                 <button class="btn btn-info" >Create</button>
                             </div>

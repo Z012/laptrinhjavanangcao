@@ -55,16 +55,8 @@ public class commentsDAO {
                 Users acc = usersDAO.ViewDetail(id);
                 Post pt = postsDAO.ViewDetail(idPost);
                 
-                Set<Users> scmm = new HashSet<Users>();
-                scmm.add(acc);
-                
-                Set<Post> spt = new HashSet<Post>();
-                spt.add(pt);
-                
                 cmm.setPost(pt);
                 cmm.setUsers(acc);
-                
-                
             }
         } catch(Exception e) {
             

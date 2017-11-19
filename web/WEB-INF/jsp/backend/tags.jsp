@@ -13,10 +13,10 @@
     <jsp:attribute name="contentAD">
 
         <header id="header">
-            <div class="container">
+
                 <div class="row">
                     <div class="col-md-10">
-                        <h1><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Tags <small>Manage Site Users</small></h1>
+                        <h1><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Tags </h1>
                     </div>
                     <div class="col-md-2">
                         <div class="dropdown create">
@@ -26,20 +26,20 @@
                         </div>
                     </div>
                 </div>
-            </div>
+
         </header>
 
         <section id="breadcrumb">
-            <div class="container">
+
                 <ol class="breadcrumb">
                     <li><a href="index.html">Dashboard</a></li>
                     <li class="active">Tags</li>
                 </ol>
-            </div>
+
         </section>
 
         <section id="main">
-            <div class="container">
+
                 <div class="row">
 
                     <%@include file="General.jsp" %>
@@ -83,7 +83,7 @@
 
                     </div>
                 </div>
-            </div>
+
         </section>
 
     </jsp:attribute>

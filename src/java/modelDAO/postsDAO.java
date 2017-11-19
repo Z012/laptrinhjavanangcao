@@ -1,7 +1,9 @@
 package modelDAO;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
@@ -52,8 +54,7 @@ public class postsDAO {
 
     public static Post ViewDetail(int id) {
         Session session = HibernateUtil.getSessionFactory().openSession();
-        Post post = null;
-        post = (Post) session.get(Post.class, id);
+        Post post = (Post) session.get(Post.class, id);
         session.close();
         return post;
     }
@@ -65,6 +66,8 @@ public class postsDAO {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             session.beginTransaction();
+            Set<Post> pst = new HashSet<Post>();
+            pst.add(post);
             session.save(post);
             session.getTransaction().commit();
             return true;

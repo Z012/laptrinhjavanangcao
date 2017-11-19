@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import model.*;
 import modelDAO.*;
+import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller
@@ -31,4 +32,17 @@ public class TagsController {
     {
         return "backend/addtag";
     }
+    
+    @RequestMapping(value = "/store", method = RequestMethod.POST)
+    public String storeTag(@RequestParam(value = "title", required = true) String title)
+    {
+        tagsDAO.AddTag(title);
+        return "redirect:/tags.html";
+    }
+    
+//    @RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
+//    public String deleteTag(@RequestParam("id") int id){
+//        tagsDAO.DeleteTag(id);
+//        return "redirect:/tags.html";
+//    }
 }

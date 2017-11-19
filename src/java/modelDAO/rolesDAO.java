@@ -44,4 +44,22 @@ public class rolesDAO {
         }
         return numberRole;
     }
+    
+    public static boolean AddRole(String name, String Description) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Role role = new Role();
+        try {
+            session.beginTransaction();
+            role.setName(name);
+            role.setDescription(Description);
+            session.save(role);
+            session.getTransaction().commit();
+            return true;
+        } catch (Exception e) {
+            
+        } finally {
+            session.close();
+        }
+        return false;
+    }
 }

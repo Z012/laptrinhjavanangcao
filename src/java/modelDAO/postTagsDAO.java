@@ -4,8 +4,6 @@ package modelDAO;
  *
  * @author mk
  */
-import java.util.HashSet;
-import java.util.Set;
 import model.HibernateUtil;
 import model.PostTags;
 import model.Post;
@@ -25,11 +23,6 @@ public class postTagsDAO {
             Post post = postsDAO.ViewDetail(idPost);
             Tags tag = tagsDAO.ViewDetail(idTag);
             if (post != null && tag != null) {
-                Set<Post> pst = new HashSet<Post>();
-                pst.add(post);
-                Set<Tags> tgs = new HashSet<Tags>();
-                tgs.add(tag);
-                
                 pt.setPost(post);
                 pt.setTags(tag);
                 
@@ -45,9 +38,9 @@ public class postTagsDAO {
         return false;
     }
     
-//    public static void main(String[] args){
-//        AddPostTags(1, 7);
-//        AddPostTags(4, 7);
-//        AddPostTags(5, 7);
-//    }
+    public static void main(String[] args){
+        AddPostTags(1, 7);
+        AddPostTags(4, 7);
+        AddPostTags(5, 7);
+    }
 }

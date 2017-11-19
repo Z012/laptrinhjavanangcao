@@ -43,7 +43,7 @@
                     <%@include file="General.jsp" %>
 
                     <div class="col-md-9">
-                        <form method="POST" action="#">
+                        <form method="POST" action="${pageContext.request.contextPath}/posts/store.html">
                             <div class="header">
                                 <h2>Add Page</h2>
                             </div>
