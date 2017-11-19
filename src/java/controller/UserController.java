@@ -43,7 +43,8 @@ public class UserController {
 
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
     public String logout(ModelMap modelMap, HttpServletRequest request) {
-        request.getSession().removeAttribute("UsernameSession");
+        request.getSession().setAttribute("UsernameSession", null);
+//        request.getSession().removeAttribute("UsernameSession");
         return "redirect:users/singup.html";
     }
 

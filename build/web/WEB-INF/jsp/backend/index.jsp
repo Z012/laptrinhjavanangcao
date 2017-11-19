@@ -9,35 +9,14 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="p" uri="/WEB-INF/tlds/myTags" %>
 
-<%--<%@page import="modelDAO.tagsDAO"%>
-<%@page import="modelDAO.usersDAO" %>
-
-<%
-    Long numberUser = usersDAO.CountUser();
-    Long numberTag = tagsDAO.CountTags();  
-%>--%>
-
 <p:backend title="Trang chủ quản lý" >
     <jsp:attribute name="contentAD">
 
         <header id="header">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-10">
-                        <h1><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Dashboard <small>Manage Your Site</small></h1>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="dropdown create">
-                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                Create Content
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                <li><a type="button" data-toggle="modal" data-target="#addPage">Add Post</a></li>
-                                <li><a href="#">Add Tags</a></li>
-                                <li><a href="#">Add Role</a></li>
-                            </ul>
-                        </div>
+                    <div class="col-md-12">
+                        <h1><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Dashboard </h1>
                     </div>
                 </div>
             </div>

@@ -19,4 +19,10 @@ public class RoleController {
         modelmap.addAttribute("lsRole", rolesDAO.ListAll());
         return "backend/roles";
     }
+    
+    @RequestMapping(value = "/addrole", method = RequestMethod.GET)
+    public String addRole()
+    {
+        return "backend/addrole";
+    }
 }

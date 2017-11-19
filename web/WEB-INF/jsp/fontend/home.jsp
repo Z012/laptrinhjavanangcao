@@ -41,7 +41,7 @@
                                 <img src="${pageContext.request.contextPath}/templates/images/team.jpeg" alt="" />
                                 <p>Quisque non tellus vitae mauris luctus aliquam sit amet id velit. Mauris ut dapibus nulla, a dictum neque.</p>
                                 <div class="a-btn">
-                                    <a href="single.html">Đọc tiếp </a>
+                                    <a href="${pageContext.request.contextPath}/home/about.html">Đọc tiếp </a>
                                 </div>
                             </div>
                         </div>

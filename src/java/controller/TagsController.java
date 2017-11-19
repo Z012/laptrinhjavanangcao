@@ -25,4 +25,10 @@ public class TagsController {
         model.put("dsTags", dsTags);
         return "backend/tags";
     }
+    
+    @RequestMapping(value = "/addtag", method = RequestMethod.GET)
+    public String addTag()
+    {
+        return "backend/addtag";
+    }
 }

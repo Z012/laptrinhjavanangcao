@@ -38,6 +38,9 @@ public class HomeController {
         return "fontend/contact";
     }
     
+//    @RequestMapping(value="/contact/message", method = RequestMethod.POST)
+//    public String message()
+    
     @RequestMapping(value="/tags", method=RequestMethod.GET)
     public String contact(ModelMap modelmap){
         //List<Tags>

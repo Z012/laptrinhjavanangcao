@@ -89,7 +89,7 @@ public class usersDAO {
         Query query = session.createQuery("from Users where Email=?");
         query.setParameter(0, email);
         List<Users> lsUser = query.list();
-
+        session.close();
         if ((lsUser != null) && (lsUser.size()) > 0) {
             return lsUser.get(0).getId();
         } else {

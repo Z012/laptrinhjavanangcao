@@ -30,5 +30,11 @@ public class PostController {
         return "fontend/single";
     }
     
+    @RequestMapping(value="/addpost", method = RequestMethod.GET)
+    public String addPost()
+    {
+        return "backend/addpost";
+    }
+    
     
 }

@@ -29,9 +29,9 @@
                             </div>
                         </div>	
                         <div class="col-md-8 contact-right">
-                            <input placeholder="Họ tên" type="text" required>
-                            <input placeholder="Email" type="text" required>
-                            <textarea placeholder="Nội dung" required></textarea>
+                            <input placeholder="Họ tên" type="text" required name="Username">
+                            <input placeholder="Email" type="text" required name="Email">
+                            <textarea placeholder="Nội dung" required name="Content"></textarea>
                             <div class="submit-btn">
                                 <form>
                                     <input type="submit" value="GỬI">
