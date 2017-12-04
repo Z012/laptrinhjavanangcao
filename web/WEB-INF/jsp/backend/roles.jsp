@@ -84,7 +84,7 @@
                                             <td>${role.getName()}</td>
                                             <td>${role.getDescription()}</td>
                                             <td>
-                                                <a class="btn btn-default" href="edit.html"><span class="glyphicon glyphicon-pencil"></span></a> 
+                                                <a class="btn btn-default" href="${pageContext.request.contextPath}/roles/${role.getId()}/edit-role.html"><span class="glyphicon glyphicon-pencil"></span></a> 
                                                 <a class="btn btn-danger" href="${pageContext.request.contextPath}/roles/${role.getId()}/delete-role.html"><span class="glyphicon glyphicon-trash"></span></a>
                                             </td>
                                         </tr>

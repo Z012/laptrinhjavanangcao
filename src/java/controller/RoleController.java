@@ -4,6 +4,7 @@ package controller;
  *
  * @author mk
  */
+import model.Role;
 import modelDAO.rolesDAO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -32,6 +33,26 @@ public class RoleController {
     public String storeRole(@RequestParam(value = "name", required = true) String name, @RequestParam(value = "description", required = true) String description)
     {
         rolesDAO.AddRole(name, description);
+        return "redirect:/roles.html";
+    }
+    
+    @RequestMapping(value = "/{id}/edit-role", method = RequestMethod.GET) 
+    public String editRole(@PathVariable(value="id") int id, ModelMap modelMap) {
+        Role role = rolesDAO.ViewDetail(id);
+        modelMap.put("role", role);
+        return "backend/editrole";
+    }
+    
+    @RequestMapping(value = "/{id}/update-role", method = RequestMethod.POST)
+    public String updateRole(@PathVariable(value="id") int id, 
+            @RequestParam(value = "name", required = true) String name, 
+            @RequestParam(value = "description", required = true) String description,
+            ModelMap modelMap ) {
+        boolean updateRole = rolesDAO.UpdateRole(id, name, description);
+        if (updateRole)
+            modelMap.addAttribute("thongbao", "Cap nhat thanh cong");
+        else 
+            modelMap.addAttribute("Loi", "Cap nhat that bai");
         return "redirect:/roles.html";
     }
     

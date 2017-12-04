@@ -69,6 +69,26 @@ public class rolesDAO {
         return false;
     }
     
+    public static boolean UpdateRole (int id, String name, String des) {
+        Role role = ViewDetail(id);
+        if (role == null)
+            return false;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            session.beginTransaction();
+            role.setName(name);
+            role.setDescription(des);
+            session.update(role);
+            session.getTransaction().commit();
+            return true;
+        } catch(Exception e) {
+            session.getTransaction().rollback();
+            return false;
+        } finally {
+            session.close();
+        }
+    }
+    
     public static boolean DeleteRole (int id) {
         Role role = (Role) ViewDetail(id);
         if (role == null || "Admin".equals(role.getName())) {
