@@ -43,26 +43,17 @@
                         <div class="body">
                             <div class="form-group">
                                 <label>Title</label>
-                                <input type="text" class="form-control" placeholder="Title" name="title">
+                                <input type="text" class="form-control" placeholder="Title" name="title" required>
                             </div>
                             <div class="form-group">
                                 <label>Description</label>
-                                <textarea class="form-control" rows="3" placeholder="Description..." name="description"></textarea>
+                                <textarea class="form-control" rows="3" placeholder="Description..." name="description" required></textarea>
                             </div>
                             <div class="form-group">
                                 <label>Content</label>
-                                <textarea id="editor1" class="form-control" placeholder="Content" name="content"></textarea>
+                                <textarea id="editor1" class="form-control" placeholder="Content" name="content" required></textarea>
                             </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" name="status"> Published
-                                </label>
-                            </div>
-                            <!--                                <div class="form-group">
-                                                                <label>Tags</label>
-                                                                <input type="text" class="form-control" placeholder="Add Some Tags...">
-                                                            </div>   -->
-                            <button class="btn btn-info" >Create</button>
+                            <button class="btn btn-info" type="submit">Create</button>
                         </div>
                     </form>
                 </div>

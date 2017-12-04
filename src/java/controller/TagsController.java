@@ -6,6 +6,7 @@ package controller;
  */
 
 import java.util.List;
+import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import model.*;
 import modelDAO.*;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
@@ -40,9 +42,14 @@ public class TagsController {
         return "redirect:/tags.html";
     }
     
-//    @RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
-//    public String deleteTag(@RequestParam("id") int id){
-//        tagsDAO.DeleteTag(id);
-//        return "redirect:/tags.html";
-//    }
+    @RequestMapping(value = "/{id}/delete-tags", method = {RequestMethod.GET,RequestMethod.POST})
+    public String deleteTag(@PathVariable(value = "id") int id, ModelMap modelMap){
+        //int id = Integer.parseInt(request.getParameter("id"));
+        boolean delTag = tagsDAO.DeleteTag(id);
+        if (delTag == true)
+            modelMap.put("thongbao", "Xoa thanh cong");
+        else 
+            modelMap.put("loi", "Xoa that bai");
+        return "redirect:/tags.html";
+    }
 }

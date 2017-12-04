@@ -9,17 +9,12 @@ package modelDAO;
  *
  * @author mk
  */
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import model.Users;
 import model.HibernateUtil;
 import org.hibernate.Query;
-import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
@@ -64,24 +59,50 @@ public class usersDAO {
         return false;
     }
 
-    public static boolean DeleteUser(int id) {
-        Users user = ViewDetail(id);
-        if (user == null) {
-            return false;
-        }
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        try {
-            session.beginTransaction();
-            session.delete(user);
-            session.getTransaction().commit();
-            return true;
-        } catch (Exception e) {
-
-        } finally {
-            session.close();
-        }
-        return false;
-    }
+//    public static boolean DeleteUser(int id) {
+//        
+//        Users user = (Users) ViewDetail(id);
+//        if (user == null || user.getRole().getId() == 1) {
+//            System.out.print("Check 1");
+//            return false;
+//        }
+//        
+//        Session session = HibernateUtil.getSessionFactory().openSession(); 
+//        try {    
+//            session.beginTransaction().begin();
+//            session.delete(user);
+//            session.getTransaction().commit();
+//            System.out.println("Okay");
+//            return true;
+//        } catch (Exception e) {     
+//            session.getTransaction().rollback();
+//        } finally {
+//            session.close();
+//        }
+//        System.out.print("Check 2");
+//        return false;
+//    }
+    
+//    public static boolean DeleteUser(int id) {
+//        
+//        Users user = (Users) ViewDetail(id);
+//        if (user == null || user.getRole().getId() == 1) {
+//            System.out.println("Check 1");
+//            return false;
+//        }
+//        System.out.println("Start");
+//        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+//        System.out.println("Check 2");
+//        session.getTransaction().begin();
+//        System.out.println("Check 3");
+//        Query query = session.createQuery("delete from Users where Id=:id");
+//        System.out.println("Check 4");
+//        query.setParameter("id", id);
+//        System.out.println("Check 5");
+//        session.close();
+//        System.out.println("Check 6");
+//        return true;
+//    }
 
     public static Users ViewDetail(int id) {
         Session session = HibernateUtil.getSessionFactory().openSession();
@@ -149,18 +170,12 @@ public class usersDAO {
         return numberUser;
     }
 
-//    public static void main(String[] args) {
-//        String email = "3h08mi@gmail.com";
-//        String pass = "123456";
-//        boolean dangnhap = Login(email, pass);
-//        System.out.println(dangnhap);
-//        if(dangnhap){
-//            int id = ResultId(email);
-//            System.out.println(id);
-//            Users user = ViewDetail(id);
-//            System.out.println(user.getUsername());
-//        }
-//
-//    }
+    public static void main(String[] args) {
+//        System.out.println(DeleteUser(7));
+//        System.out.println(ViewDetail(5).getFullName());
+//        System.out.println(CountUser());
+//        System.out.print(ViewDetail(5));
+        
+    }
 
 }

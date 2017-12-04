@@ -52,6 +52,20 @@
                             </div>
                             <div class="panel-body">
                                 <div class="row">
+                                    <c:if test="${loi != null}">
+                                        <div class="alert alert-danger alert-dismissable">
+                                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                            <strong>Error!</strong>${loi}
+                                        </div>
+                                    </c:if>
+                                    <c:if test="${thongbao != null}">
+                                        <div class="alert alert-success alert-dismissable">
+                                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                            <strong>Success!</strong>${thongbao}.
+                                        </div>
+                                    </c:if>
+                                </div>
+                                <div class="row">
                                     <div class="col-md-12">
                                         <input class="form-control" type="text" placeholder="Filter Users...">
                                     </div>
@@ -72,7 +86,7 @@
                                             <td>${Tag.getNumber()}</td>
                                             <td>
                                                 <a class="btn btn-default" href="edit.html"><span class="glyphicon glyphicon-pencil"></span></a> 
-                                                <a class="btn btn-danger" href="#"><span class="glyphicon glyphicon-trash"></span></a>
+                                                <a class="btn btn-danger" href="${pageContext.request.contextPath}/tags/${Tag.getId()}/delete-tags.html"><span class="glyphicon glyphicon-trash"></span></a>
                                             </td>
                                         </tr>
                                     </c:forEach>

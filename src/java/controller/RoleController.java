@@ -7,6 +7,7 @@ package controller;
 import modelDAO.rolesDAO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -33,4 +34,15 @@ public class RoleController {
         rolesDAO.AddRole(name, description);
         return "redirect:/roles.html";
     }
+    
+    @RequestMapping(value = "/{id}/delete-role", method = {RequestMethod.GET, RequestMethod.POST})
+    public String deleteRole(@PathVariable(value="id") int id, ModelMap modelMap) {
+        boolean delRole = rolesDAO.DeleteRole(id);
+        if (delRole)
+            modelMap.put("thongbao", "Xoa thanh cong");
+        else 
+            modelMap.put("loi", "Xoa that bai");
+        return "redirect:/roles.html";
+    }
+    
 }

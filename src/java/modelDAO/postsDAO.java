@@ -1,6 +1,12 @@
 package modelDAO;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -59,19 +65,29 @@ public class postsDAO {
         return post;
     }
 
-    public static boolean AddPost(Post post) {
-        if (postsDAO.ViewDetail(post.getId()) != null) {
-            return false;
-        }
+    public static boolean AddPost(String title, String des, String content, int status) {
+//        System.out.println("check 1");
         Session session = HibernateUtil.getSessionFactory().openSession();
+//        System.out.println("check 1");
+        DateFormat df = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
+        Date dateobj = new Date();
+        
+        //String dateNow = formatter.format(currentDate.getTime());
         try {
             session.beginTransaction();
-            Set<Post> pst = new HashSet<Post>();
-            pst.add(post);
+            Post post = new Post();
+            post.setTitle(title);
+            post.setDescription(des);
+            post.setContent(content);
+            post.setStatus(status);
+            post.setDateCreated(dateobj);
+            post.setDateModified(dateobj);
             session.save(post);
             session.getTransaction().commit();
+//            System.out.println("check 1");
             return true;
         } catch (Exception e) {
+            System.err.println(e);
             session.getTransaction().rollback();
             return false;
         } finally {
@@ -91,4 +107,26 @@ public class postsDAO {
         }
         return numberPost;
     }
+    
+    public static boolean DeletePost(int id) {
+        Post post = (Post) ViewDetail(id);
+        if (post == null)
+            return false;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            session.beginTransaction();
+            session.delete(post);
+            session.getTransaction().commit();
+            return true;
+        } catch (Exception e) {
+            session.getTransaction().rollback();
+            return false;
+        } finally {
+            session.close();
+        }     
+    }
+    
+//    public static void main(String[] args) {
+//        System.out.println(AddPost("toi la ai", "TEst thanh cong trong cong cuoc ", "123 456 789 123 456 789", 0));
+//    }
 }

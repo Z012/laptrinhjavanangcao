@@ -41,12 +41,18 @@ public class PostController {
     @RequestMapping(value = "/store", method = RequestMethod.POST)
     public String storePost(@RequestParam(value = "title", required = true) String title, 
                 @RequestParam(value = "description", required = true) String description, 
-                @RequestParam(value = "content", required = true) String content) {
-        Post ps = new Post();
-        ps.setTitle(title);
-        ps.setContent(content);
-        ps.setDescription(description);
-        postsDAO.AddPost(ps);
+                @RequestParam(value = "content", required = true) String content) {       
+        postsDAO.AddPost(title, description, content, 1);
+        return "redirect:/posts.html";
+    }
+    
+    @RequestMapping(value = "/{id}/delete-post", method = {RequestMethod.GET, RequestMethod.POST})
+    public String deletePost(@PathVariable(value = "id")int id, ModelMap modelMap) {
+        boolean delPost = postsDAO.DeletePost(id);
+        if (delPost)
+            modelMap.addAttribute("thongbao", "Xoa thanh cong");
+        else 
+            modelMap.addAttribute("loi", "Xoa that bai");
         return "redirect:/posts.html";
     }
 }

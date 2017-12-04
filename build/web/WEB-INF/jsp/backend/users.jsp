@@ -37,6 +37,7 @@
                     <%@include file="General.jsp" %>
 
                     <div class="col-md-9">
+                        
                         <!-- Website Overview -->
                         <div class="panel panel-default">
                             <div class="panel-heading main-color-bg">
@@ -62,7 +63,6 @@
                                             <td>${user.getEmail()}</td>
                                             <td>${user.getDateCreated()}</td>
                                             <td>
-                                                <a class="btn btn-default disabled" href="edit.html"><span class="glyphicon glyphicon-pencil"></span></a> 
                                                 <a class="btn btn-danger disabled" href="#"><span class="glyphicon glyphicon-trash"></span></a>
                                             </td>
                                         </tr>

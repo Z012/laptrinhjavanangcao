@@ -12,7 +12,6 @@ package modelDAO;
 import java.util.List;
 import model.Role;
 import model.HibernateUtil;
-import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
@@ -45,6 +44,13 @@ public class rolesDAO {
         return numberRole;
     }
     
+    public static Role ViewDetail(int id) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Role role = (Role) session.get(Role.class, id);
+        session.close();
+        return role;
+    }
+    
     public static boolean AddRole(String name, String Description) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Role role = new Role();
@@ -62,4 +68,30 @@ public class rolesDAO {
         }
         return false;
     }
+    
+    public static boolean DeleteRole (int id) {
+        Role role = (Role) ViewDetail(id);
+        if (role == null || "Admin".equals(role.getName())) {
+            //System.out.print("Check 1");
+            return false;
+        }
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            session.beginTransaction();
+            session.delete(role);
+            session.getTransaction().commit();
+            //System.out.println("Check 2");
+            return true;
+        } catch (Exception e) {
+            session.getTransaction().rollback();
+            //System.out.println("Check 3");
+            return false;
+        } finally {
+            session.close();
+        }
+    }
+    
+//    public static void main(String[] args) {
+//        System.out.println(DeleteRole(4));
+//    }
 }

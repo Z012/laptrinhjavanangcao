@@ -17,7 +17,7 @@
                     <div class=" single-grid">
                         <h4>${baiviet.getTitle()}</h4>				
                         <ul class="blog-ic">
-                            <li><a href="#"><span> <i  class="glyphicon glyphicon-user"> </i>Super user</span> </a> </li>
+                            <li><a href="#"><span> <i  class="glyphicon glyphicon-user"> </i>XXX</span> </a> </li>
                             <li><span><i class="glyphicon glyphicon-time"> </i> <fmt:formatDate value="${baiviet.getDateModified()}" pattern="yyyy-MM-dd" /></span></li>		  						 	
                             <li><span><i class="glyphicon glyphicon-eye-open"> </i>Hits:145</span></li>
                         </ul>		  						

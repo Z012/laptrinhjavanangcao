@@ -4,7 +4,6 @@ package modelDAO;
  *
  * @author mk
  */
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -22,7 +21,7 @@ public class tagsDAO {
         Session session = sessionFactory.openSession();
         List<Tags> lsTag = null;
         try {
-            Query query = session.createQuery("from Tags");
+            Query query = session.createQuery("from Tags order by Id desc");
             lsTag = query.list();
         } catch (Exception e) {
 
@@ -82,7 +81,7 @@ public class tagsDAO {
                 Tags tg = new Tags();
                 tg.setName(title);
                 tg.setNumber(0);
-                Set<Tags> stg = new HashSet<Tags>();
+                Set<Tags> stg = new HashSet<>();
                 stg.add(tg);
                 session.save(tg);
                 session.getTransaction().commit();
@@ -108,15 +107,16 @@ public class tagsDAO {
             session.getTransaction().commit();
             return true;
         } catch(Exception e) {
-            
+            session.getTransaction().rollback();
+            return false;
         } finally {
             session.close();
         }
-        return false;
     }
 
-    public static void main(String args[]) {
-//        System.out.println(AddTag("Python"));
-        System.out.println(DeleteTag(18));
-    }
+//    public static void main(String args[]) {
+//        System.out.println(AddTag("123 456 789"));
+//        System.out.println(DeleteTag(26));
+//        System.out.println(AddTag("123 456 987"));
+//    }
 }

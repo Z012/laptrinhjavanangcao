@@ -22,7 +22,7 @@
                                 <h3>${post.getTitle()}</h3>
                             </div>
                             <div class="about-two">
-                                <p>Posted by <a href="#">Johnson </a> on <fmt:formatDate value="${post.getDateModified()}" pattern="yyyy-MM-dd" /> <a href="#">comments(2)</a></p>
+                                <p>Posted by <a href="#">MrK Cuong </a> on <fmt:formatDate value="${post.getDateModified()}" pattern="yyyy-MM-dd" /> <a href="#">comments(2)</a></p>
                                 <p>${post.getDescription()}</p>
                                 <div class="about-btn">
                                     <a href="${pageContext.request.contextPath}/posts/<c:out value="${post.getId()}"/>/single.html">Đọc tiếp </a>
