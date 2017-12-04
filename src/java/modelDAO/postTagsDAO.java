@@ -38,9 +38,9 @@ public class postTagsDAO {
         return false;
     }
     
-    public static void main(String[] args){
-        AddPostTags(1, 7);
-        AddPostTags(4, 7);
-        AddPostTags(5, 7);
-    }
+//    public static void main(String[] args){
+//        AddPostTags(1, 7);
+//        AddPostTags(4, 7);
+//        AddPostTags(5, 7);
+//    }
 }

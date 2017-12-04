@@ -46,6 +46,27 @@ public class PostController {
         return "redirect:/posts.html";
     }
     
+    @RequestMapping(value = "/{id}/edit-post", method = RequestMethod.GET)
+    public String editPost(@PathVariable(value = "id") int id, ModelMap modelMap) {
+        Post post = postsDAO.ViewDetail(id);
+        modelMap.put("post", post);
+        return "backend/editpost";
+    }
+    
+    @RequestMapping(value = "/{id}/update-post", method = RequestMethod.POST)
+    public String update(@PathVariable(value = "id") int id,
+            @RequestParam(value="title") String title,
+            @RequestParam(value="description") String description,
+            @RequestParam(value="content") String content,
+            ModelMap modelMap) {
+        boolean updatePost = postsDAO.UpdatePost(id, title, description, content);
+        if (updatePost)
+            modelMap.addAttribute("thongbao", "Cap nhat thanh cong");
+        else 
+            modelMap.addAttribute("loi", "Cap nhat that bai");
+        return "redirect:/posts.html";
+    }
+    
     @RequestMapping(value = "/{id}/delete-post", method = {RequestMethod.GET, RequestMethod.POST})
     public String deletePost(@PathVariable(value = "id")int id, ModelMap modelMap) {
         boolean delPost = postsDAO.DeletePost(id);

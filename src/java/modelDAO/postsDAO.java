@@ -22,6 +22,9 @@ import model.HibernateUtil;
  */
 public class postsDAO {
 
+    private static final DateFormat df = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
+    private static final Date dateobj = new Date();
+    
     public static List<Post> ListAll() {
         Session session = HibernateUtil.getSessionFactory().openSession();
         List<Post> lsPost = null;
@@ -69,8 +72,7 @@ public class postsDAO {
 //        System.out.println("check 1");
         Session session = HibernateUtil.getSessionFactory().openSession();
 //        System.out.println("check 1");
-        DateFormat df = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
-        Date dateobj = new Date();
+
         
         //String dateNow = formatter.format(currentDate.getTime());
         try {
@@ -82,6 +84,8 @@ public class postsDAO {
             post.setStatus(status);
             post.setDateCreated(dateobj);
             post.setDateModified(dateobj);
+            Set<Post> ps = new HashSet<>();
+            ps.add(post);
             session.save(post);
             session.getTransaction().commit();
 //            System.out.println("check 1");
@@ -93,6 +97,30 @@ public class postsDAO {
         } finally {
             session.close();
         }
+    }
+    
+    public static boolean UpdatePost(int id, String title, String des, String content) {
+        Post ps = ViewDetail(id);
+        if (ps == null)
+            return false;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            session.beginTransaction();
+            ps.setTitle(title);
+            ps.setDescription(des);
+            ps.setContent(content);
+            ps.setDateModified(dateobj);
+            session.update(ps);
+            session.getTransaction().commit();
+            return true;
+        } catch (Exception e) {
+            session.getTransaction().rollback();
+            return false;
+        } finally {
+            session.close();
+        }
+        
+        
     }
 
     public static int CountPost() {

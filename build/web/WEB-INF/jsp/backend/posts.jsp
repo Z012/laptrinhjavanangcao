@@ -92,7 +92,7 @@
                                             </td>
                                             <td>${post.getDateModified()}</td>
                                             <td>
-                                                <a class="btn btn-default " href="edit.html"><span class="glyphicon glyphicon-pencil"></span></a> 
+                                                <a class="btn btn-default " href="${pageContext.request.contextPath}/posts/${post.getId()}/edit-post.html"><span class="glyphicon glyphicon-pencil"></span></a> 
                                                 <a class="btn btn-danger" href="${pageContext.request.contextPath}/posts/${post.getId()}/delete-post.html"><span class="glyphicon glyphicon-trash"></span></a>
                                             </td>
                                         </tr>
