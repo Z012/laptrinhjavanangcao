@@ -85,7 +85,7 @@
                                             <td>${Tag.getName()}</td>
                                             <td>${Tag.getNumber()}</td>
                                             <td>
-                                                <a class="btn btn-default" href="edit.html"><span class="glyphicon glyphicon-pencil"></span></a> 
+                                                <a class="btn btn-default" href="${pageContext.request.contextPath}/tags/${Tag.getId()}/edit-tags.html"><span class="glyphicon glyphicon-pencil"></span></a> 
                                                 <a class="btn btn-danger" href="${pageContext.request.contextPath}/tags/${Tag.getId()}/delete-tags.html"><span class="glyphicon glyphicon-trash"></span></a>
                                             </td>
                                         </tr>

@@ -95,6 +95,25 @@ public class tagsDAO {
         return blTag;
     }
     
+    public static boolean UpdateTagName(int id, String name) {
+        Tags tg = ViewDetail(id);
+        if (tg == null)
+            return false;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            session.beginTransaction();
+            tg.setName(name);
+            session.update(tg);
+            session.getTransaction().commit();
+            return true;
+        } catch(Exception e) {
+            session.getTransaction().rollback();
+            return false;
+        } finally {
+            session.close();
+        }
+    }
+    
     public static boolean DeleteTag(int id) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Tags tg = ViewDetail(id);
@@ -115,7 +134,7 @@ public class tagsDAO {
     }
 
 //    public static void main(String args[]) {
-//        System.out.println(AddTag("123 456 789"));
+//        System.out.println(UpdateTagName(15, "123 456 789"));
 //        System.out.println(DeleteTag(26));
 //        System.out.println(AddTag("123 456 987"));
 //    }

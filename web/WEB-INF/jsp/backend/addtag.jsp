@@ -8,7 +8,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="p" uri="/WEB-INF/tlds/myTags" %>
-<p:backend title="Trang sua bai viet" >
+<p:backend title="Trang tao the moi" >
     <jsp:attribute name="contentAD">
 
         <header id="header">
