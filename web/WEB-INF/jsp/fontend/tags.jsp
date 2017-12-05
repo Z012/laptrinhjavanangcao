@@ -4,118 +4,40 @@
     Author     : mk
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="p" uri="/WEB-INF/tlds/myTags" %>
+
 <p:fontend title="Tags">
     <jsp:attribute name="content">
 
-        <!--gallery-starts-->
-        <div class="gallery">
-            <div class="container">
-                <div class="gallery-top heading">
-                    <h3>OUR GALLERY</h3>
+        <div class="container-fluid" style="margin-top: 15px">
+            <div class="row">
+                <div class="col-md-offset-1 col-md-2">
+                    <%@include file="CategoryTags.jsp" %>
                 </div>
-                <section>
-                    <ul id="da-thumbs" class="da-thumbs">
-                        
-                        <li>
-                            <a href="images/g-1.jpg" rel="title" class="b-link-stripe b-animate-go  thickbox">
-                                <img src="images/g-1.jpg" alt="" />
-                                <div>
-                                    <h5>Coffee</h5>
-                                    <span>non suscipit leo fringilla non suscipit leo fringilla molestie</span>
+                <div class="col-md-7 col-lg-offset-1 about-left ">
+                    <div class="about-main">
+                        <c:forEach var="post" items="${dsBaiViet}">
+                            <div class="about-one">
+                                <h3>${post.getTitle()}</h3>
+                            </div>
+                            <div class="about-two">
+                                <p>Posted by <a href="#">MrK Cuong </a> on <fmt:formatDate value="${post.getDateModified()}" pattern="yyyy-MM-dd" /> <a href="#">comments(2)</a></p>
+                                <p>${post.getDescription()}</p>
+                                <div class="about-btn">
+                                    <a href="${pageContext.request.contextPath}/posts/${post.getId()}/single.html">Đọc tiếp </a>
                                 </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="images/g-2.jpg" rel="title" class="b-link-stripe b-animate-go  thickbox">
-                                <img src="images/g-2.jpg" alt="" />
-                                <div>
-                                    <h5>Coffee</h5>
-                                    <span>non suscipit leo fringilla non suscipit leo fringilla molestie</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="images/g-3.jpg" rel="title" class="b-link-stripe b-animate-go  thickbox">
-                                <img src="images/g-3.jpg" alt="" />
-                                <div>
-                                    <h5>Coffee</h5>
-                                    <span>non suscipit leo fringilla non suscipit leo fringilla molestie</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="images/g-4.jpg" rel="title" class="b-link-stripe b-animate-go  thickbox">
-                                <img src="images/g-4.jpg" alt="" />
-                                <div>
-                                    <h5>Coffee</h5>
-                                    <span>non suscipit leo fringilla non suscipit leo fringilla molestie</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li>	
-                            <a href="images/g-5.jpg" rel="title" class="b-link-stripe b-animate-go  thickbox">
-                                <img src="images/g-5.jpg" alt="" />
-                                <div>
-                                    <h5>Coffee</h5>
-                                    <span>non suscipit leo fringilla non suscipit leo fringilla molestie</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="images/g-6.jpg" rel="title" class="b-link-stripe b-animate-go  thickbox">
-                                <img src="images/g-6.jpg" alt="" />
-                                <div>
-                                    <h5>Coffee</h5>
-                                    <span>non suscipit leo fringilla non suscipit leo fringilla molestie</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="images/g-7.jpg" rel="title" class="b-link-stripe b-animate-go  thickbox">
-                                <img src="images/g-7.jpg" alt="" />
-                                <div>
-                                    <h5>Coffee</h5>
-                                    <span>non suscipit leo fringilla non suscipit leo fringilla molestie</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="images/g-8.jpg" rel="title" class="b-link-stripe b-animate-go  thickbox">
-                                <img src="images/g-8.jpg" alt="" />
-                                <div>
-                                    <h5>Coffee</h5>
-                                    <span>non suscipit leo fringilla non suscipit leo fringilla molestie</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="images/g-9.jpg" rel="title" class="b-link-stripe b-animate-go  thickbox">
-                                <img src="images/g-9.jpg" alt="" />
-                                <div>
-                                    <h5>Coffee</h5>
-                                    <span>non suscipit leo fringilla non suscipit leo fringilla molestie</span>
-                                </div>
-                            </a>
-                        </li>
-                        <div class="clearfix"> </div>
-                    </ul>
-                </section>
-
-                <script type="text/javascript">
-                    $(function () {
-
-                        $(' #da-thumbs > li ').each(function () {
-                            $(this).hoverdir();
-                        });
-
-                    });
-                </script>
+                            </div>
+                            <div class="clearfix"></div>
+                            <br>
+                            <br>
+                        </c:forEach>
+                    </div>
+                </div>
             </div>
         </div>
-        <!--gallery-end-->
-
 
 
     </jsp:attribute>

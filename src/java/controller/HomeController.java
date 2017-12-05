@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import modelDAO.postsDAO;
-import model.Post;
+import modelDAO.*;
+import model.*;
 /**
  *
  * @author mk
@@ -42,11 +42,16 @@ public class HomeController {
 //    public String message()
     
     @RequestMapping(value="/tags", method=RequestMethod.GET)
-    public String contact(ModelMap modelmap){
-        //List<Tags>
-        
+    public String tag(ModelMap modelmap){
+        List<Tags> dsTags = tagsDAO.ListAll();
+        List<Post> dsBaiViet = postsDAO.ListNumber(10);
+//        modelmap.put("chude", "Chu de bai viet");
+        modelmap.put("dsBaiViet", dsBaiViet);
+        modelmap.put("dsTags", dsTags);
         return "fontend/tags";
     }
+    
+    
     
     
 }

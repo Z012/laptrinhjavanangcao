@@ -53,10 +53,12 @@
                     </div>
                     <div class="header-right">
                         <div class="search-bar">
-                            <input type="text" value="Tim kiem" onfocus="this.value = '';" onblur="if (this.value == '') {
+                            <form>
+                                <input type="text" name="search" value="Tim kiem" onfocus="this.value = '';" onblur="if (this.value == '') {
                                         this.value = 'Tim kiem';
                                     }">
-                            <input type="submit" value="">
+                                <input type="submit" value="">
+                            </form>
                         </div>
                     </div>
                     <div class="clearfix"></div>
@@ -86,7 +88,7 @@
                 </div>
             </div>
         </div>
-        
+
         <script type="text/javascript" src="${pageContext.request.contextPath}/templates/js/style.js"></script>
     </body>
 </html>
