@@ -9,6 +9,9 @@ package modelDAO;
  *
  * @author mk
  */
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -19,6 +22,9 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 public class usersDAO {
+
+    private static final DateFormat df = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
+    private static final Date dateobj = new Date();
 
     public static boolean Login(String email, String pass) {
         boolean userFound = false;
@@ -44,10 +50,12 @@ public class usersDAO {
                 Users user = new Users();
                 user.setEmail(email);
                 user.setUsername(name);
-                
+                user.setDateCreated(dateobj);
+                user.setRole(rolesDAO.ViewDetail(8));
+
                 Set<Users> scmm = new HashSet<Users>();
                 scmm.add(user);
-                
+
                 session.save(user);
                 session.getTransaction().commit();
                 return true;
@@ -82,7 +90,6 @@ public class usersDAO {
 //        System.out.print("Check 2");
 //        return false;
 //    }
-    
 //    public static boolean DeleteUser(int id) {
 //        
 //        Users user = (Users) ViewDetail(id);
@@ -103,19 +110,18 @@ public class usersDAO {
 //        System.out.println("Check 6");
 //        return true;
 //    }
-
     public static Users ViewDetail(int id) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Users user = (Users) session.get(Users.class, id);
         session.close();
         return user;
     }
-    
+
     public static List<Users> SearchUser(String str) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
         Query query = session.createQuery("from Users where Email like :str or Username like :str");
-        query.setParameter("str", "%"+str+"%");
+        query.setParameter("str", "%" + str + "%");
         List<Users> lsUs = query.list();
         session.close();
         return lsUs;
@@ -185,7 +191,5 @@ public class usersDAO {
 //        System.out.println(ViewDetail(5).getFullName());
 //        System.out.println(CountUser());
 //        System.out.print(ViewDetail(5));
-        
 //    }
-
 }

@@ -1,14 +1,3 @@
-<%-- 
-    Document   : searchposts
-    Created on : Dec 5, 2017, 11:48:49 AM
-    Author     : mk
---%>
-
-<%-- 
-    Document   : searchroles
-    Created on : Dec 5, 2017, 11:48:34 AM
-    Author     : mk
---%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>

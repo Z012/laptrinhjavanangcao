@@ -51,7 +51,16 @@ public class HomeController {
         return "fontend/tags";
     }
     
-    
+    @RequestMapping(value="/search", method = RequestMethod.POST)
+    public String search(@RequestParam(value="search") String str, ModelMap modelMap) {
+        List<Tags> dsTags = tagsDAO.ListAll();
+        List<Post> dsBaiViet = postsDAO.SearchTitle(str);
+//        modelmap.put("chude", "Chu de bai viet");
+        modelMap.put("dsBaiViet", dsBaiViet);
+        modelMap.put("dsTags", dsTags);
+        return "fontend/search";
+        
+    }
     
     
 }

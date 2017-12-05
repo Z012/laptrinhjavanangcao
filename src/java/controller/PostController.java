@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import modelDAO.postsDAO;
+import modelDAO.*;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
@@ -28,7 +28,7 @@ public class PostController {
     @RequestMapping(value="/{id}/single", method=RequestMethod.GET)
     public String viewDetail(@PathVariable("id") int id, ModelMap modelmap){
         modelmap.addAttribute("baiviet", postsDAO.ViewDetail(id));
-        
+        modelmap.put("lsCm", commentsDAO.ListCommentPost(id));
         return "fontend/single";
     }
     

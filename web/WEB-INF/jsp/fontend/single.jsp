@@ -17,7 +17,7 @@
                     <div class=" single-grid">
                         <h4>${baiviet.getTitle()}</h4>				
                         <ul class="blog-ic">
-                            <li><a href="#"><span> <i  class="glyphicon glyphicon-user"> </i>XXX</span> </a> </li>
+                            <li><a href="#"><span> <i  class="glyphicon glyphicon-user"> </i>${baiviet.getUsers().getUsername()}</span> </a> </li>
                             <li><span><i class="glyphicon glyphicon-time"> </i> <fmt:formatDate value="${baiviet.getDateModified()}" pattern="yyyy-MM-dd" /></span></li>		  						 	
                             <li><span><i class="glyphicon glyphicon-eye-open"> </i>Hits:145</span></li>
                         </ul>		  						
@@ -25,41 +25,26 @@
                     </div>
                     <div class="comments heading">
                         <h3>Comments</h3>
+                        <c:forEach items="${lsCm}" var="cm">
                         <div class="media">
                             <div class="media-body">
-                                <h4 class="media-heading">	Richard Spark</h4>
-                                <p>On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs .  </p>
+                                <h4 class="media-heading">${cm.getUsers().getUsername()}</h4>
+                                <p>${cm.getContent()}</p>
                             </div>
                             <div class="media-right">
                                 <a href="#">
                                     <img src="${pageContext.request.contextPath}/templates/images/si.png" alt=""> </a>
                             </div>
                         </div>
-                        <div class="media">
-                            <div class="media-left">
-                                <a href="#">
-                                    <img src="${pageContext.request.contextPath}/templates/images/si.png" alt="">
-                                </a>
-                            </div>
-                            <div class="media-body">
-                                <h4 class="media-heading">Joseph Goh</h4>
-                                <p>On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs .  </p>
-                            </div>
-                        </div>
+                        </c:forEach>
                     </div>
                     <div class="comment-bottom heading">
                         <h3>Leave a Comment</h3>
-                        <form>	
-                            <input type="text" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                                            this.value = 'Name';
-                                                        }">
-                            <input type="text" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                                            this.value = 'Email';
-                                                        }">
-                            <textarea cols="77" rows="6" value=" " onfocus="this.value = '';" onblur="if (this.value == '') {
-                                                            this.value = 'Message';
-                                                        }">Message</textarea>
-                            <input type="submit" value="Send">
+                        <form method="POST" action="${pageContext.request.contextPath}/comments/${baiviet.getId()}/single.html">	
+                            <input type="text" placeholder="Name" name="name">
+                            <input type="text" placeholder="Email" name="email">
+                            <textarea cols="77" rows="6" placeholder="Message" name="message"></textarea>
+                            <input type="submit" value="Gui">
                         </form>
                     </div>
                 </div>	

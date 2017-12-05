@@ -14,10 +14,10 @@
 
         <div class="container-fluid" style="margin-top: 15px">
             <div class="row">
-                <div class="col-md-offset-1 col-md-2">
+                <div class="col-md-offset-1 col-md-3">
                     <%@include file="CategoryTags.jsp" %>
                 </div>
-                <div class="col-md-7 col-lg-offset-1 about-left ">
+                <div class="col-md-8 about-left ">
                     <div class="about-main">
                         <c:forEach var="post" items="${dsBaiViet}">
                             <div class="about-one">

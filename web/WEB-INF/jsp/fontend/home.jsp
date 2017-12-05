@@ -22,7 +22,7 @@
                                 <h3>${post.getTitle()}</h3>
                             </div>
                             <div class="about-two">
-                                <p>Posted by <a href="#">MrK Cuong </a> on <fmt:formatDate value="${post.getDateModified()}" pattern="yyyy-MM-dd" /> <a href="#">comments(2)</a></p>
+                                <p>Đăng bởi <a href="#">${post.getUsers().getUsername()}</a> vào <fmt:formatDate value="${post.getDateModified()}" pattern="yyyy-MM-dd" /> <a href="#">  Bình luận (3)</a></p>
                                 <p>${post.getDescription()}</p>
                                 <div class="about-btn">
                                     <a href="${pageContext.request.contextPath}/posts/<c:out value="${post.getId()}"/>/single.html">Đọc tiếp </a>
@@ -50,17 +50,15 @@
                             <h3>Có thể bạn cũng thích</h3>
                             <ul>
                                 <c:forEach var="baiviet" items="${dsBaiViet}">
-                                    <li><a href="single.html">${baiviet.getTitle()}</a> </li>
+                                    <li><a href="${pageContext.request.contextPath}/posts/<c:out value="${baiviet.getId()}"/>/single.html">${baiviet.getTitle()}</a> </li>
                                     </c:forEach>
                             </ul>	
                         </div>
                         <div class="abt-2">
                             <h3>Tin tức </h3>
                             <div class="news">
-                                <form>
-                                    <input type="text" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                            this.value = 'Email';
-                                        }" />
+                                <form method="POST" action="#">
+                                    <input type="text" value="Email" name="email"/>
                                     <input type="submit" value="Đăng ký">
                                 </form>
                             </div>

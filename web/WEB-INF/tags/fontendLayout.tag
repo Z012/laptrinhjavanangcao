@@ -53,7 +53,7 @@
                     </div>
                     <div class="header-right">
                         <div class="search-bar">
-                            <form>
+                            <form action="${pageContext.request.contextPath}/home/search.html" method="POST">
                                 <input type="text" name="search" value="Tim kiem" onfocus="this.value = '';" onblur="if (this.value == '') {
                                         this.value = 'Tim kiem';
                                     }">
