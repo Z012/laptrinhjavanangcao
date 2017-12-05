@@ -46,4 +46,16 @@ public class UserController {
         request.getSession().setAttribute("UsernameSession", null);
         return "redirect:users/singup.html";
     }
+    
+    @RequestMapping(value = "/search-users", method = RequestMethod.POST)
+    public String search(@RequestParam(value = "name") String name, ModelMap modelMap) {
+        if (name != null) {
+            modelMap.put("name", name);
+            modelMap.put("lsUser", usersDAO.SearchUser(name));
+            return "backend/searchusers";
+        } else {
+            return "redirect:/users.html";
+        }
+        
+    }
 }

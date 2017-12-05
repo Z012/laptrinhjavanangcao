@@ -58,6 +58,15 @@ public class TagsController {
         return "redirect:/tags.html";
     }
     
+    @RequestMapping(value = "/search-tags", method=RequestMethod.POST)
+    public String searchTag(@RequestParam(value = "name") String name, ModelMap modelMap) {
+        if (name == null)
+            return "redirect:/tags.html";
+        modelMap.put("dsTags", tagsDAO.SearchTag(name));
+        modelMap.put("name", name);
+        return "backend/searchtags";
+    }
+    
     @RequestMapping(value = "/{id}/delete-tags", method = {RequestMethod.GET,RequestMethod.POST})
     public String deleteTag(@PathVariable(value = "id") int id, ModelMap modelMap){
         //int id = Integer.parseInt(request.getParameter("id"));

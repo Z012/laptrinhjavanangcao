@@ -67,6 +67,15 @@ public class PostController {
         return "redirect:/posts.html";
     }
     
+    @RequestMapping(value = "/search-posts", method = RequestMethod.POST)
+    public String searchPost(@RequestParam(value = "name") String name, ModelMap mdMap) {
+        if (name == null)
+            return "redirect:/posts.html";
+        mdMap.put("lsPost", postsDAO.SearchTitle(name));
+        mdMap.put("name", name);
+        return "backend/searchposts";
+    }
+    
     @RequestMapping(value = "/{id}/delete-post", method = {RequestMethod.GET, RequestMethod.POST})
     public String deletePost(@PathVariable(value = "id")int id, ModelMap modelMap) {
         boolean delPost = postsDAO.DeletePost(id);

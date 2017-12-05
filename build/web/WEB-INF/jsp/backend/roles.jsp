@@ -66,10 +66,12 @@
                                     </c:if>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-12">
-                                        <input class="form-control" type="text" placeholder="Filter Posts...">
-                                    </div>
+                                <div class="col-md-12">
+                                    <form action="${pageContext.request.contextPath}/roles/search-roles.html" method="POST">
+                                        <input class="form-control" type="text" placeholder="Search ..." name="name">
+                                    </form>
                                 </div>
+                            </div>
                                 <br>
                                 <table class="table table-striped table-hover">
                                     <tr>

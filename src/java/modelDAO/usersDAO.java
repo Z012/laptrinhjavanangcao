@@ -110,6 +110,16 @@ public class usersDAO {
         session.close();
         return user;
     }
+    
+    public static List<Users> SearchUser(String str) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        Query query = session.createQuery("from Users where Email like :str or Username like :str");
+        query.setParameter("str", "%"+str+"%");
+        List<Users> lsUs = query.list();
+        session.close();
+        return lsUs;
+    }
 
     public static int ResultId(String email) {
         Session session = HibernateUtil.getSessionFactory().openSession();
@@ -170,12 +180,12 @@ public class usersDAO {
         return numberUser;
     }
 
-    public static void main(String[] args) {
+//    public static void main(String[] args) {
 //        System.out.println(DeleteUser(7));
 //        System.out.println(ViewDetail(5).getFullName());
 //        System.out.println(CountUser());
 //        System.out.print(ViewDetail(5));
         
-    }
+//    }
 
 }

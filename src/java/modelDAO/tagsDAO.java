@@ -114,6 +114,16 @@ public class tagsDAO {
         }
     }
     
+    public static List<Tags> SearchTag(String name) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        Query query = session.createQuery("from Tags where Name like :name");
+        query.setParameter("name", "%" + name + "%");
+        List<Tags> dsTags = query.list();
+        session.close();
+        return dsTags;
+    }
+    
     public static boolean DeleteTag(int id) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Tags tg = ViewDetail(id);
@@ -137,5 +147,6 @@ public class tagsDAO {
 //        System.out.println(UpdateTagName(15, "123 456 789"));
 //        System.out.println(DeleteTag(26));
 //        System.out.println(AddTag("123 456 987"));
+//        System.out.println(SearchTag("on").size());
 //    }
 }

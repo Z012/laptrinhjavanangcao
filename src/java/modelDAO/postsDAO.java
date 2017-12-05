@@ -54,11 +54,14 @@ public class postsDAO {
         return lsPost;
     }
 
-    public static Post SearchTitle(String str) {
+    public static List<Post> SearchTitle(String str) {
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
-
-        return null;
+        Query query = session.createQuery("from Post where Title like :title or Description like :title");
+        query.setParameter("title", "%"+str+"%");
+        List<Post> dsPost = query.list();
+        session.close();
+        return dsPost;
     }
 
     public static Post ViewDetail(int id) {
@@ -110,6 +113,7 @@ public class postsDAO {
             ps.setDescription(des);
             ps.setContent(content);
             ps.setDateModified(dateobj);
+            ps.setStatus(1);
             session.update(ps);
             session.getTransaction().commit();
             return true;

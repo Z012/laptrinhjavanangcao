@@ -12,6 +12,7 @@ package modelDAO;
 import java.util.List;
 import model.Role;
 import model.HibernateUtil;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
@@ -87,6 +88,16 @@ public class rolesDAO {
         } finally {
             session.close();
         }
+    }
+    
+    public static List<Role> SearchRole (String str) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        Query query = session.createQuery("from Role where Name like :str or Description like :str");
+        query.setParameter("str", "%"+str+"%");
+        List<Role> lsRole = query.list();
+        session.close();
+        return lsRole;
     }
     
     public static boolean DeleteRole (int id) {
