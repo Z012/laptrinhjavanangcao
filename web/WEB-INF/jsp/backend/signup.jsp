@@ -15,7 +15,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h1 class="text-center"> Admin Area</h1>
+                        <h1 class="text-center"> Trang quản lý</h1>
                     </div>
                 </div>
             </div>
@@ -27,14 +27,14 @@
                     <div class="col-md-4 col-md-offset-4">
                         <form method="POST" action="${pageContext.request.contextPath}/users/login.html" class="well">
                             <div class="form-group">
-                                <label>Email Address</label>
+                                <label>Email</label>
                                 <input id="email"  name="email" type="text" class="form-control" placeholder="Email" >
                             </div>
                             <div class="form-group">
-                                <label>Password</label>
+                                <label>Mật khẩu</label>
                                 <input id="pass" name="pass" type="password" class="form-control" placeholder="Password" >
                             </div>
-                            <button type="submit" class="btn btn-default btn-block">Login</button>
+                            <button type="submit" class="btn btn-default btn-block">Đăng nhập</button>
                         </form>
                     </div>
                 </div>

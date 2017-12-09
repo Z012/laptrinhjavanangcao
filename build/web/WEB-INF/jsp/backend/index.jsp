@@ -16,7 +16,7 @@
 
                 <div class="row">
                     <div class="col-md-12">
-                        <h1><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Dashboard </h1>
+                        <h1><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Trang chủ </h1>
                     </div>
                 </div>
 
@@ -25,7 +25,7 @@
         <section id="breadcrumb">
 
                 <ol class="breadcrumb">
-                    <li class="active">Dashboard</li>
+                    <li class="active">Trang chủ</li>
                 </ol>
 
         </section>
@@ -46,25 +46,25 @@
                                 <div class="col-md-3">
                                     <div class="well dash-box">
                                         <h2><span class="glyphicon glyphicon-user" aria-hidden="true"></span> ${numberUser}</h2>
-                                        <h4>Users</h4>
+                                        <h4>Người dùng</h4>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="well dash-box">
                                         <h2><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> ${numberMessage}</h2>
-                                        <h4>Messages</h4>
+                                        <h4>Tin nhắn </h4>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="well dash-box">
                                         <h2><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> ${numberPost}</h2>
-                                        <h4>Posts</h4>
+                                        <h4>Bài viết</h4>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="well dash-box">
                                         <h2><span class="glyphicon glyphicon-stats" aria-hidden="true"></span> 12,334</h2>
-                                        <h4>Visitors</h4>
+                                        <h4>Lượt ghé thăm</h4>
                                     </div>
                                 </div>
                             </div>
@@ -73,14 +73,14 @@
                         <!-- Latest Users -->
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3 class="panel-title">Latest Users</h3>
+                                <h3 class="panel-title">Người dùng cuối</h3>
                             </div>
                             <div class="panel-body">
                                 <table class="table table-striped table-hover">
                                     <tr>
-                                        <th>Name</th>
+                                        <th>Tên </th>
                                         <th>Email</th>
-                                        <th>Joined</th>
+                                        <th>Ngày tham gia</th>
                                     </tr>
                                     <c:forEach var="User" items="${lsUser}">
                                         <tr>

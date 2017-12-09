@@ -15,7 +15,7 @@
         <header id="header">
             <div class="row">
                 <div class="col-md-12">
-                    <h1><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Users </h1>
+                    <h1><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Quản lý người dùng </h1>
                 </div>
 
             </div>
@@ -24,8 +24,8 @@
         <section id="breadcrumb">
 
             <ol class="breadcrumb">
-                <li><a href="index.html">Dashboard</a></li>
-                <li class="active">Users</li>
+                <li><a href="${pageContext.request.contextPath}/admin/index.html">Trang chủ</a></li>
+                <li class="active">Người dùng</li>
             </ol>
 
         </section>
@@ -41,7 +41,7 @@
                     <!-- Website Overview -->
                     <div class="panel panel-default">
                         <div class="panel-heading main-color-bg">
-                            <h3 class="panel-title">Users</h3>
+                            <h3 class="panel-title">Danh sách người dùng</h3>
                         </div>
                         <div class="panel-body">
                             <div class="row">
@@ -54,9 +54,9 @@
                             <br>
                             <table class="table table-striped table-hover">
                                 <tr>
-                                    <th>Name</th>
+                                    <th>Tên </th>
                                     <th>Email</th>
-                                    <th>Joined</th>
+                                    <th>Ngày tham gia</th>
                                     <th></th>
                                 </tr>
                                 <c:forEach var="user" items="${lsUser}">

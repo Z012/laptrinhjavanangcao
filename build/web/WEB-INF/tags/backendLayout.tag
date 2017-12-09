@@ -34,7 +34,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="${pageContext.request.contextPath}/admin/index.html">Admin</a>
+                    <a class="navbar-brand" href="${pageContext.request.contextPath}/admin/index.html">Trang quản lý</a>
                 </div>
                 <div id="navbar" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
@@ -42,17 +42,17 @@
                             if (session.getAttribute("UsernameSession") == null) {
                         %>
                         <li>
-                            <a href="${pageContext.request.contextPath}/users/signup.html">Login</a>
+                            <a href="${pageContext.request.contextPath}/users/signup.html">Đăng nhập</a>
                         </li>
                         <% } %>
                         <%
                             if (session.getAttribute("UsernameSession") != null) {
                         %>
                         <li> 
-                            <a href="">Welcome, <%= session.getAttribute("UsernameSession")%></a>
+                            <a href="">Chào mừng bạn, <%= session.getAttribute("UsernameSession")%></a>
                         </li>
                         <li>
-                            <a href="${pageContext.request.contextPath}/users/signup.html">Logout</a>
+                            <a href="${pageContext.request.contextPath}/users/signup.html">Đăng xuất</a>
                         </li>
                         <% }%>
                     </ul>

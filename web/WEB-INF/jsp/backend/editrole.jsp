@@ -14,12 +14,12 @@
        <header id="header">
                 <div class="row">
                     <div class="col-md-10">
-                        <h1><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Roles </h1>
+                        <h1><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Quyền </h1>
                     </div>
                     <div class="col-md-2">
                         <div class="dropdown create">
                             <button class="btn btn-default" type="button">
-                                Create Role
+                                Thêm quyền
                             </button>
                         </div>
                     </div>
@@ -28,8 +28,8 @@
 
         <section id="breadcrumb">
                 <ol class="breadcrumb">
-                    <li><a href="index.html">Dashboard</a></li>
-                    <li class="active">Roles</li>
+                    <li><a href="${pageContext.request.contextPath}/admin/index.html">Trang chủ </a></li>
+                    <li class="active">Quyền</li>
                 </ol>
         </section>
 
@@ -41,18 +41,18 @@
                     <div class="col-md-9">
                         <form method="POST" action="${pageContext.request.contextPath}/roles/${role.getId()}/update-role.html">
                             <div class="header">
-                                <h2>Update Role</h2>
+                                <h2>Cập nhật quyền</h2>
                             </div>
                             <div class="body">
                                 <div class="form-group">
-                                    <label>Name</label>
+                                    <label>Tên quyền</label>
                                     <input type="text" class="form-control" placeholder="Name" name="name" value="${role.getName()}">
                                 </div>
                                 <div class="form-group">
-                                    <label>Description</label>
+                                    <label>Mô tả</label>
                                     <textarea type="text" class="form-control" placeholder="Description" name="description" rows="3">${role.getDescription()}</textarea>
                                 </div>
-                                <button class="btn btn-info" type="submit">Update</button>
+                                <button class="btn btn-info" type="submit">Cập nhật</button>
                             </div>
                         </form>
                     </div>

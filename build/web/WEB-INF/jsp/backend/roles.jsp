@@ -15,12 +15,12 @@
 
                 <div class="row">
                     <div class="col-md-10">
-                        <h1><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Roles </h1>
+                        <h1><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>Quản lý quyền </h1>
                     </div>
                     <div class="col-md-2">
                         <div class="dropdown create">
                             <a class="btn btn-default" href="${pageContext.request.contextPath}/roles/addrole.html">
-                                Create Role                           
+                                Thêm quyền                           
                             </a>
                             
                         </div>
@@ -32,8 +32,8 @@
         <section id="breadcrumb">
 
                 <ol class="breadcrumb">
-                    <li><a href="index.html">Dashboard</a></li>
-                    <li class="active">Roles</li>
+                    <li><a href="${pageContext.request.contextPath}/admin/index.html">Trang chủ</a></li>
+                    <li class="active">Quyền</li>
                 </ol>
 
         </section>
@@ -48,7 +48,7 @@
                         <!-- Website Overview -->
                         <div class="panel panel-default">
                             <div class="panel-heading main-color-bg">
-                                <h3 class="panel-title">Roles</h3>
+                                <h3 class="panel-title">Danh sách quyền</h3>
                             </div>
                             <div class="panel-body">
                                 <div class="row">
@@ -76,8 +76,8 @@
                                 <table class="table table-striped table-hover">
                                     <tr>
                                         <th>Id</th>
-                                        <th>Name</th>
-                                        <th>Description</th>
+                                        <th>Tên quyền</th>
+                                        <th>Mô tả</th>
                                         <th></th>
                                     </tr>
                                     <c:forEach items="${lsRole}" var="role">

@@ -13,12 +13,12 @@
         <header id="header">
             <div class="row">
                 <div class="col-md-10">
-                    <h1><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Posts </h1>
+                    <h1><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Danh sách bài viết  </h1>
                 </div>
                 <div class="col-md-2">
                     <div class="dropdown create">
                         <button class="btn btn-default" type="button">
-                            Create Post
+                            Tạo bài viết 
                         </button>
                     </div>
                 </div>
@@ -27,8 +27,8 @@
 
         <section id="breadcrumb">
             <ol class="breadcrumb">
-                <li><a href="index.html">Dashboard</a></li>
-                <li class="active">Posts</li>
+                <li><a href="${pageContext.request.contextPath}/admin/index.html">Quản lý</a></li>
+                <li class="active">Bài viết</li>
             </ol>
         </section>
 
@@ -38,22 +38,22 @@
                 <div class="col-md-9">
                     <form method="POST" action="${pageContext.request.contextPath}/posts/store.html">
                         <div class="header">
-                            <h2>Add Page</h2>
+                            <h2>Tạo bài viết mới</h2>
                         </div>
                         <div class="body">
                             <div class="form-group">
-                                <label>Title</label>
+                                <label>Tiêu đề</label>
                                 <input type="text" class="form-control" placeholder="Title" name="title" required>
                             </div>
                             <div class="form-group">
-                                <label>Description</label>
+                                <label>Mô tả </label>
                                 <textarea class="form-control" rows="3" placeholder="Description..." name="description" required></textarea>
                             </div>
                             <div class="form-group">
-                                <label>Content</label>
+                                <label>Nội dung </label>
                                 <textarea id="editor1" class="form-control" placeholder="Content" name="content" required></textarea>
                             </div>
-                            <button class="btn btn-info" type="submit">Create</button>
+                            <button class="btn btn-info" type="submit">Tạo</button>
                         </div>
                     </form>
                 </div>

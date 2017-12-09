@@ -11,7 +11,7 @@
 
             <div class="row">
                 <div class="col-md-10">
-                    <h1><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Posts </h1>
+                    <h1><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Quản lý bài viết </h1>
                 </div>
                 <div class="col-md-2">
                     <div class="dropdown create">
@@ -27,8 +27,8 @@
         <section id="breadcrumb">
 
             <ol class="breadcrumb">
-                <li><a href="index.html">Dashboard</a></li>
-                <li class="active">Posts</li>
+                <li><a href="${pageContext.request.contextPath}/admin/index.html">Trang chủ</a></li>
+                <li class="active">Bài viết</li>
             </ol>
         </section>
 
@@ -42,7 +42,7 @@
                     <!-- Website Overview -->
                     <div class="panel panel-default">
                         <div class="panel-heading main-color-bg">
-                            <h3 class="panel-title">Search: ${name}</h3>
+                            <h3 class="panel-title">Từ khóa: ${name}</h3>
                         </div>
                         <div class="panel-body">
                             <div class="row">
@@ -69,9 +69,9 @@
                             <br>
                             <table class="table table-striped table-hover">
                                 <tr>
-                                    <th>Title</th>
-                                    <th>Published</th>
-                                    <th>Created</th>
+                                    <th>Tiêu đề</th>
+                                    <th>Trạng thái</th>
+                                    <th>Ngày tạo</th>
                                     <th></th>
                                 </tr>
                                 <c:forEach var="post" items="${lsPost}">

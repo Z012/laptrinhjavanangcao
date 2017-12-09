@@ -4,6 +4,7 @@ package controller;
  *
  * @author mk
  */
+import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,7 +20,8 @@ public class MessageController {
     
     @RequestMapping(method = RequestMethod.GET)
     public String index(ModelMap modelmap){
-        
+        List<Messages> lsMss = messagesDAO.ListAll();
+        modelmap.put("lsMss", lsMss);
         return "backend/messages";
     }
     

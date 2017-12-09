@@ -14,12 +14,12 @@
         <header id="header">
             <div class="row">
                 <div class="col-md-10">
-                    <h1><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Tags </h1>
+                    <h1><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Thẻ </h1>
                 </div>
                 <div class="col-md-2">
                     <div class="dropdown create">
                         <button class="btn btn-default" type="button">
-                            Create Tag
+                            Thêm thẻ 
                         </button>
                     </div>
                 </div>
@@ -28,8 +28,8 @@
 
         <section id="breadcrumb">
             <ol class="breadcrumb">
-                <li><a href="index.html">Dashboard</a></li>
-                <li class="active">Tags</li>
+                <li><a href="${pageContext.request.contextPath}/admin/index.html">Trang chủ</a></li>
+                <li class="active">Thẻ</li>
             </ol>
         </section>
 
@@ -41,14 +41,14 @@
                 <div class="col-md-9">
                     <form method="POST" action="${pageContext.request.contextPath}/tags/store.html">
                         <div class="header">
-                            <h2>Add Tag</h2>
+                            <h2>Thêm thẻ</h2>
                         </div>
                         <div class="body">
                             <div class="form-group">
-                                <label>Title</label>
+                                <label>Tên thẻ </label>
                                 <input type="text" class="form-control" placeholder="Title" name="title" required>
                             </div>
-                            <button class="btn btn-info" >Create</button>
+                            <button class="btn btn-info" type="submit">Tạo mới</button>
                         </div>
                     </form>
                 </div>

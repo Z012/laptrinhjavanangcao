@@ -14,15 +14,15 @@
         <header id="header">
             <div class="row">
                 <div class="col-md-12">
-                    <h1>   <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Comments </h1>
+                    <h1>   <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>Quản lý bình luận </h1>
                 </div>
             </div>
         </header>
 
         <section id="breadcrumb">
             <ol class="breadcrumb">
-                <li><a href="index.html">Dashboard</a></li>
-                <li class="active">Comments</li>
+                <li><a href="${pageContext.request.contextPath}/admin/index.html">Trang chủ </a></li>
+                <li class="active">Binh luận</li>
             </ol>
         </section>
 
@@ -35,7 +35,7 @@
                     <!-- Website Overview -->
                     <div class="panel panel-default">
                         <div class="panel-heading main-color-bg">
-                            <h3 class="panel-title">Comments</h3>
+                            <h3 class="panel-title">Danh sách bình luận</h3>
                         </div>
                         <div class="panel-body">
                             <div class="row">
