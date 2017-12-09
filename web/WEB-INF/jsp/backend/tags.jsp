@@ -13,83 +13,93 @@
     <jsp:attribute name="contentAD">
 
         <header id="header">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-10">
-                        <h1><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Tags <small>Manage Site Users</small></h1>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="dropdown create">
-                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                Create Content
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                <li><a type="button" data-toggle="modal" data-target="#addPage">Add Page</a></li>
-                                <li><a href="#">Add Post</a></li>
-                                <li><a href="#">Add User</a></li>
-                            </ul>
-                        </div>
+
+            <div class="row">
+                <div class="col-md-10">
+                    <h1><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Tags </h1>
+                </div>
+                <div class="col-md-2">
+                    <div class="dropdown create">
+                        <a class="btn btn-default" href="${pageContext.request.contextPath}/tags/addtag.html">
+                            Create Tag                               
+                        </a>                           
                     </div>
                 </div>
             </div>
+
         </header>
 
         <section id="breadcrumb">
-            <div class="container">
-                <ol class="breadcrumb">
-                    <li><a href="index.html">Dashboard</a></li>
-                    <li class="active">Tags</li>
-                </ol>
-            </div>
+
+            <ol class="breadcrumb">
+                <li><a href="index.html">Dashboard</a></li>
+                <li class="active">Tags</li>
+            </ol>
+
         </section>
 
         <section id="main">
-            <div class="container">
-                <div class="row">
 
-                    <%@include file="General.jsp" %>
+            <div class="row">
 
-                    <div class="col-md-9">
-                        <!-- Website Overview -->
-                        <div class="panel panel-default">
-                            <div class="panel-heading main-color-bg">
-                                <h3 class="panel-title">Tags</h3>
-                            </div>
-                            <div class="panel-body">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <input class="form-control" type="text" placeholder="Filter Users...">
-                                    </div>
-                                </div>
-                                <br>
-                                <table class="table table-striped table-hover">
-                                    <tr>
-                                        <th>Id</th>
-                                        <th>Name</th>
-                                        <th>Quantity</th>
-                                        
-                                        <th></th>
-                                    </tr>
-                                    <c:forEach items="${dsTags}" var="Tag">
-                                        <tr>
-                                            <td>${Tag.getId()}</td>
-                                            <td>${Tag.getName()}</td>
-                                            <td>${Tag.getNumber()}</td>
-                                            <td>
-                                                <a class="btn btn-default disabled" href="edit.html"><span class="glyphicon glyphicon-pencil"></span></a> 
-                                                <a class="btn btn-danger disabled" href="#"><span class="glyphicon glyphicon-trash"></span></a>
-                                            </td>
-                                        </tr>
-                                    </c:forEach>
-                                    
-                                </table>
-                            </div>
+                <%@include file="General.jsp" %>
+
+                <div class="col-md-9">
+                    <!-- Website Overview -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading main-color-bg">
+                            <h3 class="panel-title">Tags</h3>
                         </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <c:if test="${loi != null}">
+                                    <div class="alert alert-danger alert-dismissable">
+                                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                        <strong>Error!</strong>${loi}
+                                    </div>
+                                </c:if>
+                                <c:if test="${thongbao != null}">
+                                    <div class="alert alert-success alert-dismissable">
+                                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                        <strong>Success!</strong>${thongbao}.
+                                    </div>
+                                </c:if>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <form action="${pageContext.request.contextPath}/tags/search-tags.html" method="POST">
+                                        <input name="name" class="form-control" type="text" placeholder="Search ...">
+                                    </form>
+                                </div>
+                            </div>
+                            <br>
+                            <table class="table table-striped table-hover">
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Name</th>
+                                    <th>Quantity</th>
 
+                                    <th></th>
+                                </tr>
+                                <c:forEach items="${dsTags}" var="Tag">
+                                    <tr>
+                                        <td>${Tag.getId()}</td>
+                                        <td>${Tag.getName()}</td>
+                                        <td>${Tag.getNumber()}</td>
+                                        <td>
+                                            <a class="btn btn-default" href="${pageContext.request.contextPath}/tags/${Tag.getId()}/edit-tags.html"><span class="glyphicon glyphicon-pencil"></span></a> 
+                                            <a class="btn btn-danger" href="${pageContext.request.contextPath}/tags/${Tag.getId()}/delete-tags.html"><span class="glyphicon glyphicon-trash"></span></a>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
+
+                            </table>
+                        </div>
                     </div>
+
                 </div>
             </div>
+
         </section>
 
     </jsp:attribute>

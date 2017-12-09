@@ -9,13 +9,16 @@ package controller;
  *
  * @author mk
  */
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
-import modelDAO.tagsDAO;
+
+
+import org.springframework.stereotype.*;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.*;
+
 import modelDAO.usersDAO;
+import modelDAO.messagesDAO;
+import modelDAO.postsDAO;
 
 @Controller
 @RequestMapping(value="/admin")
@@ -23,8 +26,10 @@ public class AdminController {
     
     @RequestMapping(value="/index", method=RequestMethod.GET)
     public String home(ModelMap modelmap){
-        modelmap.addAttribute("lsUser", usersDAO.ListNumber(5));
-        modelmap.addAttribute("numberUser", 4).addAttribute("numberTag", 5);
+        modelmap.put("lsUser", usersDAO.ListAll());
+        modelmap.put("numberUser", usersDAO.CountUser());
+        modelmap.put("numberPost", postsDAO.CountPost());
+        modelmap.put("numberMessage", messagesDAO.CountMessage());
         return "backend/index";
     }
 }

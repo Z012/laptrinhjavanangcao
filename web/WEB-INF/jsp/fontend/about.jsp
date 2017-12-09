@@ -46,8 +46,8 @@
                         <p>Fusce at elementum diam. Integer pellentesque ultricies pharetra.</p>
                     </div>
                     <div class="col-md-3 team-left">
-                        <img src="${pageContext.request.contextPath}/templates/images/nguyentrungkien.jpg" alt="" />
-                        <h4>Nguyễn Trung Kiên</h4>
+                        <img src="${pageContext.request.contextPath}/templates/images/vuhungcuong.jpg" alt="" />
+                        <h4>Vũ Hùng Cường</h4>
                         <p>Fusce at elementum diam. Integer pellentesque ultricies pharetra.</p>
                     </div>
                     <div class="clearfix"></div>

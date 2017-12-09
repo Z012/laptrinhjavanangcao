@@ -12,39 +12,34 @@
     <jsp:attribute name="contentAD">
 
         <header id="header">
-            <div class="container">
+
                 <div class="row">
                     <div class="col-md-10">
-                        <h1><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Roles <small>Manage Site Users</small></h1>
+                        <h1><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Roles </h1>
                     </div>
                     <div class="col-md-2">
                         <div class="dropdown create">
-                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                Create Content
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                <li><a type="button" data-toggle="modal" data-target="#addPage">Add Page</a></li>
-                                <li><a href="#">Add Post</a></li>
-                                <li><a href="#">Add User</a></li>
-                            </ul>
+                            <a class="btn btn-default" href="${pageContext.request.contextPath}/roles/addrole.html">
+                                Create Role                           
+                            </a>
+                            
                         </div>
                     </div>
                 </div>
-            </div>
+
         </header>
 
         <section id="breadcrumb">
-            <div class="container">
+
                 <ol class="breadcrumb">
                     <li><a href="index.html">Dashboard</a></li>
                     <li class="active">Roles</li>
                 </ol>
-            </div>
+
         </section>
 
         <section id="main">
-            <div class="container">
+
                 <div class="row">
 
                     <%@include file="General.jsp" %>
@@ -57,10 +52,26 @@
                             </div>
                             <div class="panel-body">
                                 <div class="row">
-                                    <div class="col-md-12">
-                                        <input class="form-control" type="text" placeholder="Filter Posts...">
-                                    </div>
+                                    <c:if var="loi" test="${loi}">
+                                        <div class="alert alert-danger alert-dismissable">
+                                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                            <strong>Error!</strong>${loi}
+                                        </div>
+                                    </c:if>
+                                    <c:if var="thongbao" test="${thongbao}">
+                                        <div class="alert alert-success alert-dismissable">
+                                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                            <strong>Success!</strong>${thongbao}.
+                                        </div>
+                                    </c:if>
                                 </div>
+                                <div class="row">
+                                <div class="col-md-12">
+                                    <form action="${pageContext.request.contextPath}/roles/search-roles.html" method="POST">
+                                        <input class="form-control" type="text" placeholder="Search ..." name="name">
+                                    </form>
+                                </div>
+                            </div>
                                 <br>
                                 <table class="table table-striped table-hover">
                                     <tr>
@@ -75,8 +86,8 @@
                                             <td>${role.getName()}</td>
                                             <td>${role.getDescription()}</td>
                                             <td>
-                                                <a class="btn btn-default disabled" href="edit.html"><span class="glyphicon glyphicon-pencil"></span></a> 
-                                                <a class="btn btn-danger disabled" href="#"><span class="glyphicon glyphicon-trash"></span></a>
+                                                <a class="btn btn-default" href="${pageContext.request.contextPath}/roles/${role.getId()}/edit-role.html"><span class="glyphicon glyphicon-pencil"></span></a> 
+                                                <a class="btn btn-danger" href="${pageContext.request.contextPath}/roles/${role.getId()}/delete-role.html"><span class="glyphicon glyphicon-trash"></span></a>
                                             </td>
                                         </tr>
                                     </c:forEach>
@@ -88,7 +99,7 @@
 
                     </div>
                 </div>
-            </div>
+
         </section>
 
     </jsp:attribute>

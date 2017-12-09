@@ -15,7 +15,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h1 class="text-center"> Admin Area <small>Account Login</small></h1>
+                        <h1 class="text-center"> Admin Area</h1>
                     </div>
                 </div>
             </div>
@@ -25,14 +25,14 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-4 col-md-offset-4">
-                        <form id="login" action="index.html" class="well">
+                        <form method="POST" action="${pageContext.request.contextPath}/users/login.html" class="well">
                             <div class="form-group">
                                 <label>Email Address</label>
-                                <input type="text" class="form-control" placeholder="Enter Email">
+                                <input id="email"  name="email" type="text" class="form-control" placeholder="Email" >
                             </div>
                             <div class="form-group">
                                 <label>Password</label>
-                                <input type="password" class="form-control" placeholder="Password">
+                                <input id="pass" name="pass" type="password" class="form-control" placeholder="Password" >
                             </div>
                             <button type="submit" class="btn btn-default btn-block">Login</button>
                         </form>
