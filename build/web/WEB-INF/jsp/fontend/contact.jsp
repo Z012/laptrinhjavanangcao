@@ -29,7 +29,7 @@
                             </div>
                         </div>	
                         <div class="col-md-8 contact-right">
-                            <form method="POST" action="${pageContext.request.contextPath}/posts/store.html">
+                            <form method="POST" action="${pageContext.request.contextPath}/messages/store-message.html">
                                 <input placeholder="Họ tên" type="text" required name="Username">
                                 <input placeholder="Email" type="text" required name="Email">
                                 <textarea placeholder="Nội dung" required name="Content"></textarea>

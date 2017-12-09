@@ -10,7 +10,7 @@
 
 <div class="list-group">
     <a href="#" class="list-group-item list-group-item-action active">
-        Category Tags
+        Các chủ đề
     </a>
     <c:forEach var="tag" items="${dsTags}">
         <a href="#" class="list-group-item list-group-item-action">${tag.getName()}</a>

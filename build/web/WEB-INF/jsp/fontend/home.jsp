@@ -58,7 +58,7 @@
                             <h3>Tin tức </h3>
                             <div class="news">
                                 <form method="POST" action="#">
-                                    <input type="text" value="Email" name="email"/>
+                                    <input type="text" placeholder="Email" name="email"/>
                                     <input type="submit" value="Đăng ký">
                                 </form>
                             </div>

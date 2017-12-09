@@ -12,6 +12,7 @@ package modelDAO;
 
 import java.util.List;
 import model.*;
+import modelDAO.*;
 import org.hibernate.Session;
 
 public class messagesDAO {
@@ -41,4 +42,25 @@ public class messagesDAO {
         }
         return numberMessage;
     }
+    
+    public static boolean SendMessage(String user, String email, String content) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            session.beginTransaction();
+            Messages mss = new Messages();
+            usersDAO.AddUser(email, user);
+            int id = usersDAO.ResultId(email);
+            Users acc = usersDAO.ViewDetail(id);
+            mss.setContent(content);
+            mss.setUsers(acc);
+            session.save(mss);
+            session.getTransaction().commit();
+            return true;
+        } catch(Exception e) {
+            session.getTransaction().rollback();
+            return false;
+        } finally {
+            session.close();
+        }
+    } 
 }
